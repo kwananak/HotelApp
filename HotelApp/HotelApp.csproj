@@ -184,6 +184,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeesTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeesTab.Designer.cs">
+      <DependentUpon>EmployeesTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuestsTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GuestsTab.Designer.cs">
+      <DependentUpon>GuestsTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +215,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomsTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoomsTab.Designer.cs">
+      <DependentUpon>RoomsTab.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EmployeesTab.resx">
+      <DependentUpon>EmployeesTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuestsTab.resx">
+      <DependentUpon>GuestsTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +242,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RoomsTab.resx">
+      <DependentUpon>RoomsTab.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="HotelAppDataSet.xsc">
       <DependentUpon>HotelAppDataSet.xsd</DependentUpon>
     </None>

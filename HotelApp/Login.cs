@@ -26,6 +26,11 @@ namespace HotelApp
         private String role = null;
         private int invCredCount = 0;
 
+        public SqlConnection GetCon()
+        {
+            return con;
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -46,7 +51,7 @@ namespace HotelApp
                 {
                     role = (dr.GetValue(0).ToString()).TrimEnd();
                     con.Close();
-                    MainPage mp = new MainPage(con, role, id);
+                    MainPage mp = new MainPage(this, role, id);
                     mp.Show();
                     this.Hide();
                 } else
