@@ -22,7 +22,7 @@ namespace HotelApp
         //initializes the connection to the SQL server. The connection is passed down to the main page when it opens 
         private SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-I6V3SE2;Initial Catalog=HotelApp;Integrated Security=True");
         private SqlCommand com;
-        private SqlDataReader da;
+        private SqlDataReader dr;
         private String role = null;
         private int invCredCount = 0;
 
@@ -41,10 +41,10 @@ namespace HotelApp
                 com = new SqlCommand("Select Role from Employees where EmployeeID=@id and Password=@password", con);
                 com.Parameters.AddWithValue("@id", id);
                 com.Parameters.AddWithValue("@password", textBox2.Text);
-                da = com.ExecuteReader();
-                if (da.Read())
+                dr = com.ExecuteReader();
+                if (dr.Read())
                 {
-                    role = (da.GetValue(0).ToString());
+                    role = (dr.GetValue(0).ToString()).TrimEnd();
                     con.Close();
                     MainPage mp = new MainPage(con, role, id);
                     mp.Show();
@@ -53,13 +53,10 @@ namespace HotelApp
                 {
                     invalidCreds();
                 }
-            } catch (Exception ex)
+            } catch (Exception)
             {
-                MessageBox.Show(ex.Message);
                 invalidCreds();
             }
-            
-
         }
 
         //shows the invalid credentials prompt with the updated count to show the form as been submitted
