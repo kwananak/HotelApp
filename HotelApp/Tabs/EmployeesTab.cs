@@ -25,30 +25,24 @@ namespace HotelApp
             InitializeComponent();
         }
 
+        //receives reference to the mainpage, gets connection from said mainpage and sets buttons layout
         public void SetAtt(MainPage mp)
         {
             this.mp = mp;
             con = mp.GetCon();
         }
 
-        private void View_Click(object sender, EventArgs e)
-        {
-            ResetView();
-            activeView = 0;
-            button6.BackColor = Color.YellowGreen;
-            UpdateView();
-        }
-
+        //adds employee to table with entered attributes
         private void CreateEmployee()
         {
             con.Open();
             try
             {
-                com = new SqlCommand("insert into Employees Values(@password,@firstname,@lastname,@role)", con);
-                com.Parameters.AddWithValue("@firstname", textBox2.Text);
-                com.Parameters.AddWithValue("@lastname", textBox3.Text);
-                com.Parameters.AddWithValue("@role", textBox4.Text);
-                com.Parameters.AddWithValue("@password", textBox5.Text);
+                com = new SqlCommand("INSERT INTO Employees VALUES(@password,@firstname,@lastname,@role)", con);
+                com.Parameters.AddWithValue("@firstname", firstNameBox.Text);
+                com.Parameters.AddWithValue("@lastname", lastNameBox.Text);
+                com.Parameters.AddWithValue("@role", roleBox.Text);
+                com.Parameters.AddWithValue("@password", passwordBox.Text);
                 com.ExecuteNonQuery();
                 ClearFields();
             }
@@ -59,48 +53,11 @@ namespace HotelApp
             con.Close();
         }
 
-        private void UpdateEmployee()
-        {
-            con.Open();
-            try
-            {
-                com = new SqlCommand("update Employees set password=@password, firstname=@firstname, lastname=@lastname, role=@role where EmployeeID=@id", con);
-                com.Parameters.AddWithValue("@id", int.Parse(textBox1.Text));
-                com.Parameters.AddWithValue("@firstname", textBox2.Text);
-                com.Parameters.AddWithValue("@lastname", textBox3.Text);
-                com.Parameters.AddWithValue("@role", textBox4.Text);
-                com.Parameters.AddWithValue("@password", textBox5.Text);
-                com.ExecuteNonQuery();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            con.Close();
-        }
-
-        private void DeleteEmployee()
-        {
-            con.Open();
-            try
-            {
-                com = new SqlCommand("delete from Employees where EmployeeID=@id", con);
-                com.Parameters.AddWithValue("@id", textBox1.Text);
-                com.ExecuteNonQuery();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            con.Close();
-        }
-
+        //updates in-app table view with relevant data
         private void UpdateView()
         {
             con.Open();
-            com = new SqlCommand(("select * from Employees order by EmployeeID"), con);
+            com = new SqlCommand(("SELECT * FROM Employees ORDER BY EmployeeID"), con);
             da = new SqlDataAdapter(com);
             DataTable table = new DataTable();
             da.Fill(table);
@@ -108,71 +65,109 @@ namespace HotelApp
             con.Close();
         }
 
-        private void ClearFields()
+        //updates employee selected by employee ID
+        private void UpdateEmployee()
         {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-        }
-
-        private void ResetView()
-        {
-            panel2.Hide();
-            panel3.Hide();
-            button6.BackColor = Color.Gainsboro;
-            button7.BackColor = Color.Gainsboro;
-            button8.BackColor = Color.Gainsboro;
-            button9.BackColor = Color.Gainsboro;
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            ResetView();
-            activeView = 3;
-            button9.BackColor = Color.YellowGreen;
-            panel3.Show();
-            UpdateView();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            ResetView();
-            activeView = 1;
-            button7.BackColor = Color.YellowGreen;
-            panel2.Show();
-            UpdateView();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            ResetView();
-            activeView = 2;
-            button8.BackColor = Color.YellowGreen;
-            panel3.Show();
-            UpdateView();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            panel2.Show();
             con.Open();
-            com = new SqlCommand("Select * from Employees where EmployeeID=@id", con);
-            com.Parameters.AddWithValue("@id", textBox1.Text);
-            dr = com.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                textBox1.Text = (dr.GetValue(0).ToString());
-                textBox5.Text = (dr.GetValue(1).ToString());
-                textBox2.Text = (dr.GetValue(2).ToString());
-                textBox3.Text = (dr.GetValue(3).ToString());
-                textBox4.Text = (dr.GetValue(4).ToString());
+                com = new SqlCommand("UPDATE Employees SET Password=@password, FirstName=@firstname, LastName=@lastname, Role=@role WHERE EmployeeID=@id", con);
+                com.Parameters.AddWithValue("@id", int.Parse(employeeIDBox.Text));
+                com.Parameters.AddWithValue("@firstname", firstNameBox.Text);
+                com.Parameters.AddWithValue("@lastname", lastNameBox.Text);
+                com.Parameters.AddWithValue("@role", roleBox.Text);
+                com.Parameters.AddWithValue("@password", passwordBox.Text);
+                com.ExecuteNonQuery();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             con.Close();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        //removes employee selected by employee ID
+        private void DeleteEmployee()
+        {
+            con.Open();
+            try
+            {
+                com = new SqlCommand("DELETE FROM Employees WHERE EmployeeID=@id", con);
+                com.Parameters.AddWithValue("@id", employeeIDBox.Text);
+                com.ExecuteNonQuery();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
+        }
+
+        //clears textboxes
+        private void ClearFields()
+        {
+            employeeIDBox.Clear();
+            firstNameBox.Clear();
+            lastNameBox.Clear();
+            roleBox.Clear();
+            passwordBox.Clear();
+        }
+
+
+        //removes precedent selection state
+        private void ResetView()
+        {
+            infosPanel.Hide();
+            employeeIDPanel.Hide();
+            viewButton.BackColor = Color.Gainsboro;
+            newButton.BackColor = Color.Gainsboro;
+            updateButton.BackColor = Color.Gainsboro;
+            removeButton.BackColor = Color.Gainsboro;
+        }
+
+        //opens view table when View button is clicked
+        private void ViewButtonClick(object sender, EventArgs e)
+        {
+            ResetView();
+            activeView = 0;
+            viewButton.BackColor = Color.YellowGreen;
+            UpdateView();
+        }
+
+        //opens update entry form when Update button is clicked
+        private void UpdateButtonClick(object sender, EventArgs e)
+        {
+            ResetView();
+            activeView = 2;
+            updateButton.BackColor = Color.YellowGreen;
+            employeeIDPanel.Show();
+            UpdateView();
+        }
+
+        //opens new entry form when New button is clicked
+        private void NewButtonClick(object sender, EventArgs e)
+        {
+            ResetView();
+            activeView = 1;
+            newButton.BackColor = Color.YellowGreen;
+            infosPanel.Show();
+            UpdateView();
+        }
+
+        //opens remove entry form when Remove button is clicked
+        private void RemoveButtonClick(object sender, EventArgs e)
+        {
+            ResetView();
+            activeView = 3;
+            removeButton.BackColor = Color.YellowGreen;
+            employeeIDPanel.Show();
+            UpdateView();
+        }
+
+        //confirms selected action with infos entered when Confirm button is clicked
+        private void ConfirmButtonClick(object sender, EventArgs e)
         {
             switch (activeView)
             {
@@ -184,15 +179,29 @@ namespace HotelApp
                     break;
                 case 3:
                     DeleteEmployee();
-                    panel2.Hide();
+                    infosPanel.Hide();
                     break;
             }
             UpdateView();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        //gets infos related to entered room number when get button is clicked
+        private void GetButtonClick(object sender, EventArgs e)
         {
-
+            infosPanel.Show();
+            con.Open();
+            com = new SqlCommand("SELECT * FROM Employees WHERE EmployeeID=@id", con);
+            com.Parameters.AddWithValue("@id", employeeIDBox.Text);
+            dr = com.ExecuteReader();
+            while (dr.Read())
+            {
+                employeeIDBox.Text = dr.GetValue(0).ToString();
+                passwordBox.Text = dr.GetValue(1).ToString();
+                firstNameBox.Text = dr.GetValue(2).ToString();
+                lastNameBox.Text = dr.GetValue(3).ToString();
+                roleBox.Text = dr.GetValue(4).ToString();
+            }
+            con.Close();
         }
     }
 }

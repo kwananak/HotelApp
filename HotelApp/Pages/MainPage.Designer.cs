@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.greetingsLabel = new System.Windows.Forms.Label();
+            this.tasksButton = new System.Windows.Forms.Button();
+            this.guestsButton = new System.Windows.Forms.Button();
+            this.roomsButton = new System.Windows.Forms.Button();
+            this.reservationsButton = new System.Windows.Forms.Button();
+            this.employeesButton = new System.Windows.Forms.Button();
             this.hotelAppDataSet = new HotelApp.HotelAppDataSet();
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeesTableAdapter = new HotelApp.HotelAppDataSetTableAdapters.EmployeesTableAdapter();
             this.guestsTableAdapter1 = new HotelApp.HotelAppDataSetTableAdapters.GuestsTableAdapter();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.button6 = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.reservationsTab = new HotelApp.ReservationsTab();
             this.roomsTab = new HotelApp.RoomsTab();
             this.employeesTab = new HotelApp.EmployeesTab();
@@ -51,78 +51,78 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // greetingsLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Heading", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label1.Location = new System.Drawing.Point(152, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(559, 81);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Hello <Placeholder>!";
+            this.greetingsLabel.AutoSize = true;
+            this.greetingsLabel.Font = new System.Drawing.Font("Sitka Heading", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.greetingsLabel.ForeColor = System.Drawing.Color.YellowGreen;
+            this.greetingsLabel.Location = new System.Drawing.Point(152, 25);
+            this.greetingsLabel.Name = "greetingsLabel";
+            this.greetingsLabel.Size = new System.Drawing.Size(559, 81);
+            this.greetingsLabel.TabIndex = 0;
+            this.greetingsLabel.Text = "Hello <Placeholder>!";
             // 
-            // button1
+            // tasksButton
             // 
-            this.button1.BackColor = System.Drawing.Color.YellowGreen;
-            this.button1.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(34, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 94);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Tasks";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tasksButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.tasksButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tasksButton.Location = new System.Drawing.Point(34, 120);
+            this.tasksButton.Name = "tasksButton";
+            this.tasksButton.Size = new System.Drawing.Size(213, 94);
+            this.tasksButton.TabIndex = 1;
+            this.tasksButton.Text = "Tasks";
+            this.tasksButton.UseVisualStyleBackColor = false;
+            this.tasksButton.Click += new System.EventHandler(this.TasksButtonClick);
             // 
-            // button2
+            // guestsButton
             // 
-            this.button2.BackColor = System.Drawing.Color.YellowGreen;
-            this.button2.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(34, 243);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(213, 94);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Guests";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.guestsButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.guestsButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guestsButton.Location = new System.Drawing.Point(34, 243);
+            this.guestsButton.Name = "guestsButton";
+            this.guestsButton.Size = new System.Drawing.Size(213, 94);
+            this.guestsButton.TabIndex = 2;
+            this.guestsButton.Text = "Guests";
+            this.guestsButton.UseVisualStyleBackColor = false;
+            this.guestsButton.Click += new System.EventHandler(this.GuestsButtonClick);
             // 
-            // button3
+            // roomsButton
             // 
-            this.button3.BackColor = System.Drawing.Color.YellowGreen;
-            this.button3.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(34, 361);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(213, 94);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Rooms";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.roomsButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.roomsButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roomsButton.Location = new System.Drawing.Point(34, 361);
+            this.roomsButton.Name = "roomsButton";
+            this.roomsButton.Size = new System.Drawing.Size(213, 94);
+            this.roomsButton.TabIndex = 3;
+            this.roomsButton.Text = "Rooms";
+            this.roomsButton.UseVisualStyleBackColor = false;
+            this.roomsButton.Click += new System.EventHandler(this.RoomsButtonClick);
             // 
-            // button4
+            // reservationsButton
             // 
-            this.button4.BackColor = System.Drawing.Color.YellowGreen;
-            this.button4.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(34, 481);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(213, 94);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Reservations";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.reservationsButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.reservationsButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reservationsButton.Location = new System.Drawing.Point(34, 481);
+            this.reservationsButton.Name = "reservationsButton";
+            this.reservationsButton.Size = new System.Drawing.Size(213, 94);
+            this.reservationsButton.TabIndex = 4;
+            this.reservationsButton.Text = "Reservations";
+            this.reservationsButton.UseVisualStyleBackColor = false;
+            this.reservationsButton.Visible = false;
+            this.reservationsButton.Click += new System.EventHandler(this.ReservationButtonClick);
             // 
-            // button5
+            // employeesButton
             // 
-            this.button5.BackColor = System.Drawing.Color.YellowGreen;
-            this.button5.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(34, 608);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(213, 94);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Employees";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Visible = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.employeesButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.employeesButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeesButton.Location = new System.Drawing.Point(34, 608);
+            this.employeesButton.Name = "employeesButton";
+            this.employeesButton.Size = new System.Drawing.Size(213, 94);
+            this.employeesButton.TabIndex = 5;
+            this.employeesButton.Text = "Employees";
+            this.employeesButton.UseVisualStyleBackColor = false;
+            this.employeesButton.Visible = false;
+            this.employeesButton.Click += new System.EventHandler(this.EmployeeButtonClick);
             // 
             // hotelAppDataSet
             // 
@@ -142,17 +142,17 @@
             // 
             this.guestsTableAdapter1.ClearBeforeFill = true;
             // 
-            // button6
+            // logoutButton
             // 
-            this.button6.BackColor = System.Drawing.Color.IndianRed;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(13, 13);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(102, 43);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Logout";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.logoutButton.BackColor = System.Drawing.Color.IndianRed;
+            this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.Location = new System.Drawing.Point(13, 13);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(102, 43);
+            this.logoutButton.TabIndex = 6;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.LogoutButtonClick);
             // 
             // reservationsTab
             // 
@@ -186,10 +186,10 @@
             this.guestsTab.TabIndex = 0;
             this.guestsTab.Visible = false;
             // 
-            // todaysTasksTab
+            // tasksTab
             // 
             this.tasksTab.Location = new System.Drawing.Point(253, 120);
-            this.tasksTab.Name = "todaysTasksTab";
+            this.tasksTab.Name = "tasksTab";
             this.tasksTab.Size = new System.Drawing.Size(872, 574);
             this.tasksTab.TabIndex = 9;
             this.tasksTab.Visible = false;
@@ -199,13 +199,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1151, 714);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.logoutButton);
+            this.Controls.Add(this.employeesButton);
+            this.Controls.Add(this.reservationsButton);
+            this.Controls.Add(this.roomsButton);
+            this.Controls.Add(this.guestsButton);
+            this.Controls.Add(this.tasksButton);
+            this.Controls.Add(this.greetingsLabel);
             this.Controls.Add(this.reservationsTab);
             this.Controls.Add(this.roomsTab);
             this.Controls.Add(this.employeesTab);
@@ -222,12 +222,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label greetingsLabel;
+        private System.Windows.Forms.Button tasksButton;
+        private System.Windows.Forms.Button guestsButton;
+        private System.Windows.Forms.Button roomsButton;
+        private System.Windows.Forms.Button reservationsButton;
+        private System.Windows.Forms.Button employeesButton;
         private HotelAppDataSet hotelAppDataSet;
         private System.Windows.Forms.BindingSource employeesBindingSource;
         private HotelAppDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
@@ -236,7 +236,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private GuestsTab guestsTab;
         private EmployeesTab employeesTab;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button logoutButton;
         private RoomsTab roomsTab;
         private ReservationsTab reservationsTab;
         private TasksTab tasksTab;

@@ -28,71 +28,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.getButton = new System.Windows.Forms.Button();
+            this.infosPanel = new System.Windows.Forms.Panel();
+            this.guestIDLabel = new System.Windows.Forms.Label();
+            this.roomNumberLabel = new System.Windows.Forms.Label();
+            this.checkInDateLabel = new System.Windows.Forms.Label();
+            this.checkOutDateLabel = new System.Windows.Forms.Label();
+            this.notesLabel = new System.Windows.Forms.Label();
+            this.guestIDBox = new System.Windows.Forms.TextBox();
+            this.roomNumberBox = new System.Windows.Forms.TextBox();
+            this.checkInDateBox = new System.Windows.Forms.TextBox();
+            this.checkOutDateBox = new System.Windows.Forms.TextBox();
+            this.notesBox = new System.Windows.Forms.TextBox();
             this.confirmButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.reservationIDPanel = new System.Windows.Forms.Panel();
+            this.reservationIDLabel = new System.Windows.Forms.Label();
+            this.reservationIDBox = new System.Windows.Forms.TextBox();
+            this.getButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.viewButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.infosPanel.SuspendLayout();
+            this.reservationIDPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // infosPanel
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Controls.Add(this.textBox5);
-            this.panel2.Controls.Add(this.textBox6);
-            this.panel2.Controls.Add(this.confirmButton);
-            this.panel2.Location = new System.Drawing.Point(3, 227);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(112, 286);
-            this.panel2.TabIndex = 37;
-            this.panel2.Visible = false;
+            this.infosPanel.Controls.Add(this.guestIDLabel);
+            this.infosPanel.Controls.Add(this.roomNumberLabel);
+            this.infosPanel.Controls.Add(this.checkInDateLabel);
+            this.infosPanel.Controls.Add(this.checkOutDateLabel);
+            this.infosPanel.Controls.Add(this.notesLabel);
+            this.infosPanel.Controls.Add(this.guestIDBox);
+            this.infosPanel.Controls.Add(this.roomNumberBox);
+            this.infosPanel.Controls.Add(this.checkInDateBox);
+            this.infosPanel.Controls.Add(this.checkOutDateBox);
+            this.infosPanel.Controls.Add(this.notesBox);
+            this.infosPanel.Controls.Add(this.confirmButton);
+            this.infosPanel.Location = new System.Drawing.Point(3, 227);
+            this.infosPanel.Name = "infosPanel";
+            this.infosPanel.Size = new System.Drawing.Size(112, 286);
+            this.infosPanel.TabIndex = 37;
+            this.infosPanel.Visible = false;
             // 
-            // panel3
+            // guestIDLabel
             // 
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.getButton);
-            this.panel3.Location = new System.Drawing.Point(3, 179);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(112, 47);
-            this.panel3.TabIndex = 38;
-            this.panel3.Visible = false;
+            this.guestIDLabel.AutoSize = true;
+            this.guestIDLabel.Location = new System.Drawing.Point(3, 2);
+            this.guestIDLabel.Name = "guestIDLabel";
+            this.guestIDLabel.Size = new System.Drawing.Size(49, 13);
+            this.guestIDLabel.TabIndex = 12;
+            this.guestIDLabel.Text = "Guest ID";
             // 
-            // getButton
+            // roomNumberLabel
             // 
-            this.getButton.Location = new System.Drawing.Point(74, 19);
-            this.getButton.Name = "getButton";
-            this.getButton.Size = new System.Drawing.Size(35, 23);
-            this.getButton.TabIndex = 2;
-            this.getButton.Text = "Get";
-            this.getButton.UseVisualStyleBackColor = true;
-            this.getButton.Click += new System.EventHandler(this.GetButtonClick);
+            this.roomNumberLabel.AutoSize = true;
+            this.roomNumberLabel.Location = new System.Drawing.Point(3, 41);
+            this.roomNumberLabel.Name = "roomNumberLabel";
+            this.roomNumberLabel.Size = new System.Drawing.Size(75, 13);
+            this.roomNumberLabel.TabIndex = 13;
+            this.roomNumberLabel.Text = "Room Number";
+            // 
+            // checkInDateLabel
+            // 
+            this.checkInDateLabel.AutoSize = true;
+            this.checkInDateLabel.Location = new System.Drawing.Point(3, 80);
+            this.checkInDateLabel.Name = "checkInDateLabel";
+            this.checkInDateLabel.Size = new System.Drawing.Size(76, 13);
+            this.checkInDateLabel.TabIndex = 14;
+            this.checkInDateLabel.Text = "Check In Date";
+            // 
+            // checkOutDateLabel
+            // 
+            this.checkOutDateLabel.AutoSize = true;
+            this.checkOutDateLabel.Location = new System.Drawing.Point(3, 119);
+            this.checkOutDateLabel.Name = "checkOutDateLabel";
+            this.checkOutDateLabel.Size = new System.Drawing.Size(84, 13);
+            this.checkOutDateLabel.TabIndex = 16;
+            this.checkOutDateLabel.Text = "Check Out Date";
+            // 
+            // notesLabel
+            // 
+            this.notesLabel.AutoSize = true;
+            this.notesLabel.Location = new System.Drawing.Point(3, 158);
+            this.notesLabel.Name = "notesLabel";
+            this.notesLabel.Size = new System.Drawing.Size(35, 13);
+            this.notesLabel.TabIndex = 15;
+            this.notesLabel.Text = "Notes";
+            // 
+            // guestIDBox
+            // 
+            this.guestIDBox.Location = new System.Drawing.Point(6, 18);
+            this.guestIDBox.Name = "guestIDBox";
+            this.guestIDBox.Size = new System.Drawing.Size(100, 20);
+            this.guestIDBox.TabIndex = 5;
+            // 
+            // roomNumberBox
+            // 
+            this.roomNumberBox.Location = new System.Drawing.Point(6, 57);
+            this.roomNumberBox.Name = "roomNumberBox";
+            this.roomNumberBox.Size = new System.Drawing.Size(100, 20);
+            this.roomNumberBox.TabIndex = 6;
+            // 
+            // checkInDateBox
+            // 
+            this.checkInDateBox.Location = new System.Drawing.Point(6, 96);
+            this.checkInDateBox.Name = "checkInDateBox";
+            this.checkInDateBox.Size = new System.Drawing.Size(100, 20);
+            this.checkInDateBox.TabIndex = 7;
+            this.checkInDateBox.Text = "YYYY-MM-DD";
+            // 
+            // checkOutDateBox
+            // 
+            this.checkOutDateBox.Location = new System.Drawing.Point(6, 135);
+            this.checkOutDateBox.Name = "checkOutDateBox";
+            this.checkOutDateBox.Size = new System.Drawing.Size(100, 20);
+            this.checkOutDateBox.TabIndex = 17;
+            this.checkOutDateBox.Text = "YYYY-MM-DD";
+            // 
+            // notesBox
+            // 
+            this.notesBox.Location = new System.Drawing.Point(6, 174);
+            this.notesBox.Multiline = true;
+            this.notesBox.Name = "notesBox";
+            this.notesBox.Size = new System.Drawing.Size(100, 75);
+            this.notesBox.TabIndex = 8;
             // 
             // confirmButton
             // 
@@ -105,104 +167,42 @@
             this.confirmButton.UseVisualStyleBackColor = false;
             this.confirmButton.Click += new System.EventHandler(this.ConfirmButtonClick);
             // 
-            // label1
+            // reservationIDPanel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Reservation ID";
+            this.reservationIDPanel.Controls.Add(this.reservationIDLabel);
+            this.reservationIDPanel.Controls.Add(this.reservationIDBox);
+            this.reservationIDPanel.Controls.Add(this.getButton);
+            this.reservationIDPanel.Location = new System.Drawing.Point(3, 179);
+            this.reservationIDPanel.Name = "reservationIDPanel";
+            this.reservationIDPanel.Size = new System.Drawing.Size(112, 47);
+            this.reservationIDPanel.TabIndex = 38;
+            this.reservationIDPanel.Visible = false;
             // 
-            // label2
+            // reservationIDLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Guest ID";
+            this.reservationIDLabel.AutoSize = true;
+            this.reservationIDLabel.Location = new System.Drawing.Point(4, 5);
+            this.reservationIDLabel.Name = "reservationIDLabel";
+            this.reservationIDLabel.Size = new System.Drawing.Size(78, 13);
+            this.reservationIDLabel.TabIndex = 0;
+            this.reservationIDLabel.Text = "Reservation ID";
             // 
-            // label3
+            // reservationIDBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Room Number";
+            this.reservationIDBox.Location = new System.Drawing.Point(7, 21);
+            this.reservationIDBox.Name = "reservationIDBox";
+            this.reservationIDBox.Size = new System.Drawing.Size(64, 20);
+            this.reservationIDBox.TabIndex = 1;
             // 
-            // label4
+            // getButton
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 80);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Check In Date";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 119);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 13);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Check Out Date";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 158);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Notes";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(7, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(64, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(6, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(6, 57);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(6, 96);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.Text = "YYYY-MM-DD";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(6, 135);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 17;
-            this.textBox5.Text = "YYYY-MM-DD";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(6, 174);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 75);
-            this.textBox6.TabIndex = 8;
+            this.getButton.Location = new System.Drawing.Point(74, 19);
+            this.getButton.Name = "getButton";
+            this.getButton.Size = new System.Drawing.Size(35, 23);
+            this.getButton.TabIndex = 2;
+            this.getButton.Text = "Get";
+            this.getButton.UseVisualStyleBackColor = true;
+            this.getButton.Click += new System.EventHandler(this.GetButtonClick);
             // 
             // dataGridView1
             // 
@@ -261,8 +261,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.infosPanel);
+            this.Controls.Add(this.reservationIDPanel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.viewButton);
             this.Controls.Add(this.updateButton);
@@ -270,10 +270,10 @@
             this.Controls.Add(this.removeButton);
             this.Name = "ReservationsTab";
             this.Size = new System.Drawing.Size(872, 574);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.infosPanel.ResumeLayout(false);
+            this.infosPanel.PerformLayout();
+            this.reservationIDPanel.ResumeLayout(false);
+            this.reservationIDPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -281,22 +281,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel infosPanel;
+        private System.Windows.Forms.Panel reservationIDPanel;
         private System.Windows.Forms.Button getButton;
         private System.Windows.Forms.Button confirmButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label reservationIDLabel;
+        private System.Windows.Forms.Label guestIDLabel;
+        private System.Windows.Forms.Label roomNumberLabel;
+        private System.Windows.Forms.Label checkInDateLabel;
+        private System.Windows.Forms.Label checkOutDateLabel;
+        private System.Windows.Forms.Label notesLabel;
+        private System.Windows.Forms.TextBox reservationIDBox;
+        private System.Windows.Forms.TextBox guestIDBox;
+        private System.Windows.Forms.TextBox roomNumberBox;
+        private System.Windows.Forms.TextBox checkInDateBox;
+        private System.Windows.Forms.TextBox checkOutDateBox;
+        private System.Windows.Forms.TextBox notesBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button viewButton;
         private System.Windows.Forms.Button updateButton;

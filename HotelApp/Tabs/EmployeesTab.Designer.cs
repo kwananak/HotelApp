@@ -28,159 +28,158 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.employeeIDPanel = new System.Windows.Forms.Panel();
+            this.getButton = new System.Windows.Forms.Button();
+            this.employeeIDBox = new System.Windows.Forms.TextBox();
+            this.employeeIDLabel = new System.Windows.Forms.Label();
+            this.infosPanel = new System.Windows.Forms.Panel();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.confirmButton = new System.Windows.Forms.Button();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.firstNameBox = new System.Windows.Forms.TextBox();
+            this.passwordBox = new System.Windows.Forms.TextBox();
+            this.roleLabel = new System.Windows.Forms.Label();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.lastNameBox = new System.Windows.Forms.TextBox();
+            this.roleBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.removeButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.newButton = new System.Windows.Forms.Button();
+            this.viewButton = new System.Windows.Forms.Button();
+            this.employeeIDPanel.SuspendLayout();
+            this.infosPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel3
+            // employeeIDPanel
             // 
-            this.panel3.Controls.Add(this.button11);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(3, 179);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(112, 47);
-            this.panel3.TabIndex = 24;
-            this.panel3.Visible = false;
+            this.employeeIDPanel.Controls.Add(this.getButton);
+            this.employeeIDPanel.Controls.Add(this.employeeIDBox);
+            this.employeeIDPanel.Controls.Add(this.employeeIDLabel);
+            this.employeeIDPanel.Location = new System.Drawing.Point(3, 179);
+            this.employeeIDPanel.Name = "employeeIDPanel";
+            this.employeeIDPanel.Size = new System.Drawing.Size(112, 47);
+            this.employeeIDPanel.TabIndex = 24;
+            this.employeeIDPanel.Visible = false;
             // 
-            // button11
+            // getButton
             // 
-            this.button11.Location = new System.Drawing.Point(74, 19);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(35, 23);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "Get";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.getButton.Location = new System.Drawing.Point(74, 19);
+            this.getButton.Name = "getButton";
+            this.getButton.Size = new System.Drawing.Size(35, 23);
+            this.getButton.TabIndex = 2;
+            this.getButton.Text = "Get";
+            this.getButton.UseVisualStyleBackColor = true;
+            this.getButton.Click += new System.EventHandler(this.GetButtonClick);
             // 
-            // textBox1
+            // employeeIDBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(64, 20);
-            this.textBox1.TabIndex = 1;
+            this.employeeIDBox.Location = new System.Drawing.Point(7, 21);
+            this.employeeIDBox.Name = "employeeIDBox";
+            this.employeeIDBox.Size = new System.Drawing.Size(64, 20);
+            this.employeeIDBox.TabIndex = 1;
             // 
-            // label2
+            // employeeIDLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Employee ID";
+            this.employeeIDLabel.AutoSize = true;
+            this.employeeIDLabel.Location = new System.Drawing.Point(4, 5);
+            this.employeeIDLabel.Name = "employeeIDLabel";
+            this.employeeIDLabel.Size = new System.Drawing.Size(67, 13);
+            this.employeeIDLabel.TabIndex = 0;
+            this.employeeIDLabel.Text = "Employee ID";
             // 
-            // panel2
+            // infosPanel
             // 
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.button10);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox5);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Location = new System.Drawing.Point(3, 227);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(112, 188);
-            this.panel2.TabIndex = 23;
-            this.panel2.Visible = false;
+            this.infosPanel.Controls.Add(this.firstNameLabel);
+            this.infosPanel.Controls.Add(this.confirmButton);
+            this.infosPanel.Controls.Add(this.passwordLabel);
+            this.infosPanel.Controls.Add(this.firstNameBox);
+            this.infosPanel.Controls.Add(this.passwordBox);
+            this.infosPanel.Controls.Add(this.roleLabel);
+            this.infosPanel.Controls.Add(this.lastNameLabel);
+            this.infosPanel.Controls.Add(this.lastNameBox);
+            this.infosPanel.Controls.Add(this.roleBox);
+            this.infosPanel.Location = new System.Drawing.Point(3, 227);
+            this.infosPanel.Name = "infosPanel";
+            this.infosPanel.Size = new System.Drawing.Size(112, 188);
+            this.infosPanel.TabIndex = 23;
+            this.infosPanel.Visible = false;
             // 
-            // label3
+            // firstNameLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 2);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "First Name";
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Location = new System.Drawing.Point(3, 2);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(57, 13);
+            this.firstNameLabel.TabIndex = 12;
+            this.firstNameLabel.Text = "First Name";
             // 
-            // button10
+            // confirmButton
             // 
-            this.button10.BackColor = System.Drawing.Color.YellowGreen;
-            this.button10.Location = new System.Drawing.Point(16, 161);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Confirm";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.confirmButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.confirmButton.Location = new System.Drawing.Point(16, 161);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(75, 23);
+            this.confirmButton.TabIndex = 10;
+            this.confirmButton.Text = "Confirm";
+            this.confirmButton.UseVisualStyleBackColor = false;
+            this.confirmButton.Click += new System.EventHandler(this.ConfirmButtonClick);
             // 
-            // label6
+            // passwordLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 119);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Password";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(3, 119);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(53, 13);
+            this.passwordLabel.TabIndex = 15;
+            this.passwordLabel.Text = "Password";
             // 
-            // textBox2
+            // firstNameBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.firstNameBox.Location = new System.Drawing.Point(6, 18);
+            this.firstNameBox.Name = "firstNameBox";
+            this.firstNameBox.Size = new System.Drawing.Size(100, 20);
+            this.firstNameBox.TabIndex = 5;
             // 
-            // textBox5
+            // passwordBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(6, 135);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 8;
+            this.passwordBox.Location = new System.Drawing.Point(6, 135);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.Size = new System.Drawing.Size(100, 20);
+            this.passwordBox.TabIndex = 8;
             // 
-            // label5
+            // roleLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 80);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Role";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.roleLabel.AutoSize = true;
+            this.roleLabel.Location = new System.Drawing.Point(3, 80);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Size = new System.Drawing.Size(29, 13);
+            this.roleLabel.TabIndex = 14;
+            this.roleLabel.Text = "Role";
             // 
-            // label4
+            // lastNameLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 41);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Last Name";
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Location = new System.Drawing.Point(3, 41);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(58, 13);
+            this.lastNameLabel.TabIndex = 13;
+            this.lastNameLabel.Text = "Last Name";
             // 
-            // textBox3
+            // lastNameBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 57);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.lastNameBox.Location = new System.Drawing.Point(6, 57);
+            this.lastNameBox.Name = "lastNameBox";
+            this.lastNameBox.Size = new System.Drawing.Size(100, 20);
+            this.lastNameBox.TabIndex = 6;
             // 
-            // textBox4
+            // roleBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 96);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
+            this.roleBox.Location = new System.Drawing.Point(6, 96);
+            this.roleBox.Name = "roleBox";
+            this.roleBox.Size = new System.Drawing.Size(100, 20);
+            this.roleBox.TabIndex = 7;
             // 
             // dataGridView1
             // 
@@ -194,64 +193,64 @@
             this.dataGridView1.Size = new System.Drawing.Size(752, 568);
             this.dataGridView1.TabIndex = 22;
             // 
-            // button9
+            // removeButton
             // 
-            this.button9.Location = new System.Drawing.Point(10, 135);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(100, 38);
-            this.button9.TabIndex = 21;
-            this.button9.Text = "Remove";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.removeButton.Location = new System.Drawing.Point(10, 135);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(100, 38);
+            this.removeButton.TabIndex = 21;
+            this.removeButton.Text = "Remove";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.RemoveButtonClick);
             // 
-            // button8
+            // updateButton
             // 
-            this.button8.Location = new System.Drawing.Point(10, 47);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 38);
-            this.button8.TabIndex = 20;
-            this.button8.Text = "Update";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.updateButton.Location = new System.Drawing.Point(10, 47);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(100, 38);
+            this.updateButton.TabIndex = 20;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.UpdateButtonClick);
             // 
-            // button7
+            // newButton
             // 
-            this.button7.BackColor = System.Drawing.Color.Gainsboro;
-            this.button7.Location = new System.Drawing.Point(10, 91);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 38);
-            this.button7.TabIndex = 19;
-            this.button7.Text = "New";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.newButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.newButton.Location = new System.Drawing.Point(10, 91);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(100, 38);
+            this.newButton.TabIndex = 19;
+            this.newButton.Text = "New";
+            this.newButton.UseVisualStyleBackColor = false;
+            this.newButton.Click += new System.EventHandler(this.NewButtonClick);
             // 
-            // button6
+            // viewButton
             // 
-            this.button6.Location = new System.Drawing.Point(10, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 38);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "View";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.View_Click);
+            this.viewButton.Location = new System.Drawing.Point(10, 3);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(100, 38);
+            this.viewButton.TabIndex = 18;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.ViewButtonClick);
             // 
             // EmployeesTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.employeeIDPanel);
+            this.Controls.Add(this.infosPanel);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.removeButton);
+            this.Controls.Add(this.updateButton);
+            this.Controls.Add(this.newButton);
+            this.Controls.Add(this.viewButton);
             this.Name = "EmployeesTab";
             this.Size = new System.Drawing.Size(872, 574);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.employeeIDPanel.ResumeLayout(false);
+            this.employeeIDPanel.PerformLayout();
+            this.infosPanel.ResumeLayout(false);
+            this.infosPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -259,24 +258,24 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Panel employeeIDPanel;
+        private System.Windows.Forms.Button getButton;
+        private System.Windows.Forms.TextBox employeeIDBox;
+        private System.Windows.Forms.Label employeeIDLabel;
+        private System.Windows.Forms.Panel infosPanel;
+        private System.Windows.Forms.Label firstNameLabel;
+        private System.Windows.Forms.Button confirmButton;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.TextBox firstNameBox;
+        private System.Windows.Forms.TextBox passwordBox;
+        private System.Windows.Forms.Label roleLabel;
+        private System.Windows.Forms.Label lastNameLabel;
+        private System.Windows.Forms.TextBox lastNameBox;
+        private System.Windows.Forms.TextBox roleBox;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button newButton;
+        private System.Windows.Forms.Button viewButton;
     }
 }

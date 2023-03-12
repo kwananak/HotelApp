@@ -1,17 +1,9 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HotelApp
 {
@@ -44,7 +36,7 @@ namespace HotelApp
             DataTable table = new DataTable();
             switch (mp.GetRole())
             {
-                case "admin":
+                case "Admin":
                     FindCheckIns(table);
                     FindCheckOuts(table);
                     FindCleanUps(table);
@@ -66,29 +58,29 @@ namespace HotelApp
             con.Close();
         }
 
-        //adds check ins to  table for the entered date
+        //adds check ins to table for the entered date
         private void FindCheckIns(DataTable table)
         {
-            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, CONCAT(Guests.FirstName, Guests.LastName) AS 'Guest Name', Reservations.CheckInDate, Reservations.CheckOutDate FROM Reservations INNER JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckInDate LIKE @date AND CheckedInBy IS NULL"), con);
-            com.Parameters.AddWithValue("@date", textBox7.Text + "%");
+            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, CONCAT(Guests.FirstName, ' ', Guests.LastName) AS 'Guest Name', Reservations.CheckInDate, Reservations.CheckOutDate FROM Reservations INNER JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckInDate LIKE @date AND CheckedInBy IS NULL"), con);
+            com.Parameters.AddWithValue("@date", dateBox.Text + "%");
             da = new SqlDataAdapter(com);
             da.Fill(table);
         }
 
-        //adds check ins to  table for the entered date
+        //adds check outs to table for the entered date
         private void FindCheckOuts(DataTable table) 
         { 
-            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, CONCAT(Guests.FirstName, Guests.LastName) AS 'Guest Name', Reservations.CheckInDate, Reservations.CheckOutDate FROM Reservations INNER JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckOutDate LIKE @date AND CheckedOutBy IS NULL"), con);
-            com.Parameters.AddWithValue("@date", textBox7.Text + "%");
+            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, CONCAT(Guests.FirstName, ' ', Guests.LastName) AS 'Guest Name', Reservations.CheckInDate, Reservations.CheckOutDate FROM Reservations INNER JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckOutDate LIKE @date AND CheckedOutBy IS NULL"), con);
+            com.Parameters.AddWithValue("@date", dateBox.Text + "%");
             da = new SqlDataAdapter(com);
             da.Fill(table);
         }
 
-        //adds check ins to  table for the entered date
+        //adds clean ups to table for the entered date
         private void FindCleanUps(DataTable table)
         {
             com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, Reservations.CheckOutDate FROM Reservations INNER JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckOutDate=@date AND CleanedBy IS NULL"), con);
-            com.Parameters.AddWithValue("@date", textBox7.Text);
+            com.Parameters.AddWithValue("@date", dateBox.Text);
             da = new SqlDataAdapter(com);
             da.Fill(table);
         }
@@ -96,8 +88,8 @@ namespace HotelApp
         //removes precedent selection state
         private void ResetView()
         {
-            panel2.Hide();
-            panel3.Hide();
+            infosPanel.Hide();
+            reservationIDPanel.Hide();
             viewButton.BackColor = Color.Gainsboro;
             completeButton.BackColor = Color.Gainsboro;
         }
@@ -105,13 +97,13 @@ namespace HotelApp
         //clears textboxes
         private void ClearFields()
         {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
-            textBox8.Clear();
+            reservationIDBox.Clear();
+            roomNumberBox.Clear();
+            guestNameBox.Clear();
+            checkInDateBox.Clear();
+            checkOutDateBox.Clear();
+            notesBox.Clear();
+            EmployeeIDBox.Clear();
             checkInBox.Checked = false;
             checkOutBox.Checked = false;
             cleanUpBox.Checked = false;
@@ -125,11 +117,12 @@ namespace HotelApp
             UpdateView();
         }
 
+        //opens form to complete tasks
         private void CompleteButtonClick(object sender, EventArgs e)
         {
             ResetView();
             completeButton.BackColor = Color.YellowGreen;
-            panel3.Show();
+            reservationIDPanel.Show();
             UpdateView();
         }
 
@@ -139,28 +132,30 @@ namespace HotelApp
             UpdateView();
         }
 
+        //gets infos related to entered reservation ID when get button is clicked
         private void GetButtonClick(object sender, EventArgs e)
         {
             con.Open();
             com = new SqlCommand("SELECT Reservations.ReservationID, Reservations.RoomNumber, Guests.FirstName, Guests.LastName, Reservations.CheckInDate, Reservations.CheckOutDate, Reservations.Notes, Guests.Notes, Reservations.CheckedInBy, Reservations.GuestID FROM Reservations INNER JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE ReservationID=@reservationid", con);
-            com.Parameters.AddWithValue("@reservationid", textBox1.Text);
+            com.Parameters.AddWithValue("@reservationid", reservationIDBox.Text);
             dr = com.ExecuteReader();
             while (dr.Read())
             {
-                textBox1.Text = dr.GetValue(0).ToString();
-                textBox2.Text = dr.GetValue(1).ToString();
-                textBox3.Text = dr.GetValue(2).ToString().TrimEnd() + " " + dr.GetValue(3).ToString();
-                textBox4.Text = dr.GetValue(4).ToString();
-                textBox5.Text = dr.GetValue(5).ToString();
-                textBox6.Text = "reservation notes: " + dr.GetValue(6).ToString().TrimEnd() + "\nguest notes: " + dr.GetValue(7).ToString();
+                reservationIDBox.Text = dr.GetValue(0).ToString();
+                roomNumberBox.Text = dr.GetValue(1).ToString();
+                guestNameBox.Text = dr.GetValue(2).ToString().TrimEnd() + " " + dr.GetValue(3).ToString();
+                checkInDateBox.Text = dr.GetValue(4).ToString();
+                checkOutDateBox.Text = dr.GetValue(5).ToString();
+                notesBox.Text = "reservation notes: " + dr.GetValue(6).ToString().TrimEnd() + "\nguest notes: " + dr.GetValue(7).ToString();
                 checkedInCheck = dr.GetValue(8).ToString();
                 guestID = int.Parse(dr.GetValue(9).ToString());
             }
             con.Close();
             SetConfirmButton();
-            panel2.Show();
+            infosPanel.Show();
         }
 
+        //sets confirm button tag depending on user's role
         private void SetConfirmButton()
         {
             if (mp.GetRole().Equals("Cleaning"))
@@ -180,10 +175,11 @@ namespace HotelApp
             } else
             {
                 confirmButton.Text = "Confirm";
-                panel1.Show();
+                selectionPanel.Show();
             }
         }
 
+        //confirms selected action with infos entered when Confirm button is clicked
         private void ConfirmButtonClick(object sender, EventArgs e)
         {
             switch (confirmButton.Text)
@@ -206,19 +202,19 @@ namespace HotelApp
                 default:
                     if (checkInBox.Checked)
                     {
-                        CheckInReservation(int.Parse(textBox8.Text));
+                        CheckInReservation(int.Parse(EmployeeIDBox.Text));
                         ClearFields();
                         confirmButton.Text = "Done";
                     }
                     else if (checkOutBox.Checked)
                     {
-                        CheckOutReservation(int.Parse(textBox8.Text));
+                        CheckOutReservation(int.Parse(EmployeeIDBox.Text));
                         ClearFields();
                         confirmButton.Text = "Done";
                     }
                     else if (cleanUpBox.Checked)
                     {
-                        RoomCleaned(int.Parse(textBox8.Text));
+                        RoomCleaned(int.Parse(EmployeeIDBox.Text));
                         ClearFields();
                         confirmButton.Text = "Done";
                     }
@@ -226,18 +222,18 @@ namespace HotelApp
             }
         }
 
+        //updates reservation and room as checked in
         private void CheckInReservation(int employeeID)
         {
             con.Open();
             try
             {
                 com = new SqlCommand("UPDATE Reservations SET CheckedInBy=@employeeid WHERE ReservationID=@reservationid", con);
-                com.Parameters.AddWithValue("@reservationid", int.Parse(textBox1.Text));
+                com.Parameters.AddWithValue("@reservationid", int.Parse(reservationIDBox.Text));
                 com.Parameters.AddWithValue("@employeeid", employeeID);
                 com.ExecuteNonQuery();
-
                 com = new SqlCommand("UPDATE Rooms SET GuestID=@guestid WHERE RoomNumber=@roomnumber", con);
-                com.Parameters.AddWithValue("@roomnumber", int.Parse(textBox2.Text));
+                com.Parameters.AddWithValue("@roomnumber", int.Parse(roomNumberBox.Text));
                 com.Parameters.AddWithValue("@guestid", guestID);
                 com.ExecuteNonQuery();
             }
@@ -248,18 +244,18 @@ namespace HotelApp
             con.Close();
         }
 
+        //updates reservation and room as checked out
         private void CheckOutReservation(int employeeID)
         {
             con.Open();
             try
             {
                 com = new SqlCommand("UPDATE Reservations SET CheckedOutBy=@employeeid WHERE ReservationID=@reservationid", con);
-                com.Parameters.AddWithValue("@reservationid", int.Parse(textBox1.Text));
+                com.Parameters.AddWithValue("@reservationid", int.Parse(reservationIDBox.Text));
                 com.Parameters.AddWithValue("@employeeid", employeeID);
                 com.ExecuteNonQuery();
-
                 com = new SqlCommand("UPDATE Rooms SET GuestID=@guestid WHERE RoomNumber=@roomnumber", con);
-                com.Parameters.AddWithValue("@roomnumber", int.Parse(textBox2.Text));
+                com.Parameters.AddWithValue("@roomnumber", int.Parse(roomNumberBox.Text));
                 com.Parameters.AddWithValue("@guestid", 0);
                 com.ExecuteNonQuery();
             }
@@ -270,18 +266,18 @@ namespace HotelApp
             con.Close();
         }
 
+        //updates reservation and room as cleaned up
         private void RoomCleaned(int employeeID)
         {
             con.Open();
             try
             {
                 com = new SqlCommand("UPDATE Reservations SET CleanedBy=@employeeid WHERE ReservationID=@reservationid", con);
-                com.Parameters.AddWithValue("@reservationid", int.Parse(textBox1.Text));
+                com.Parameters.AddWithValue("@reservationid", int.Parse(reservationIDBox.Text));
                 com.Parameters.AddWithValue("@employeeid", employeeID);
                 com.ExecuteNonQuery();
-
                 com = new SqlCommand("UPDATE Rooms SET CleanedBy=@employeeid WHERE RoomNumber=@roomnumber", con);
-                com.Parameters.AddWithValue("@roomnumber", int.Parse(textBox2.Text));
+                com.Parameters.AddWithValue("@roomnumber", int.Parse(roomNumberBox.Text));
                 com.Parameters.AddWithValue("@employeeid", employeeID);
                 com.ExecuteNonQuery();
             }
@@ -292,18 +288,21 @@ namespace HotelApp
             con.Close();
         }
 
+        //unchecks other checkboxes when checkInBox is clicked
         private void CheckInBoxCheckedChanged(object sender, EventArgs e)
         {
             checkOutBox.Checked = false;
             cleanUpBox.Checked = false;
         }
 
+        //unchecks other checkboxes when checkOutBox is clicked
         private void CheckOutBoxCheckedChanged(object sender, EventArgs e)
         {
             checkInBox.Checked = false;
             cleanUpBox.Checked = false;
         }
 
+        //unchecks other checkboxes when cleanUpBox is clicked
         private void CleanUpBoxCheckedChanged(object sender, EventArgs e)
         {
             checkInBox.Checked = false;

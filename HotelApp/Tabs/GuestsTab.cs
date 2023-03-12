@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelApp
 {
     public partial class GuestsTab : UserControl
     {
-
         private SqlConnection con;
         private SqlCommand com;
         private SqlDataReader dr;
@@ -26,6 +20,7 @@ namespace HotelApp
             InitializeComponent();
         }
 
+        //receives reference to the mainpage, gets connection from said mainpage and sets buttons layout
         public void SetAtt(MainPage mp)
         {
             this.mp = mp;
@@ -33,38 +28,53 @@ namespace HotelApp
             SetButtons();
         }
 
+        //removes some buttons depending on role persmissions
         private void SetButtons()
         {
             switch (mp.GetRole())
             {
                 case "Cleaning":
-                    button7.Hide();
-                    button9.Hide();
-                    label3.Hide();
-                    label4.Hide();
-                    label5.Hide();
-                    textBox2.Hide();
-                    textBox3.Hide();
-                    textBox4.Hide();
+                    newButton.Hide();
+                    removeButton.Hide();
+                    firstNameLabel.Hide();
+                    lastNameLabel.Hide();
+                    countryCodeLabel.Hide();
+                    firstNameBox.Hide();
+                    lastNameBox.Hide();
+                    countryCodeBox.Hide();
                     break;
                 case "Desk":
-                    button9.Hide();
+                    removeButton.Hide();
                     break;
             }
-        } 
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            ResetView();
-            activeView = 0;
-            button6.BackColor = Color.YellowGreen;
-            UpdateView();
         }
 
+        //adds guest to table with entered attributes
+        private void CreateGuest()
+        {
+            con.Open();
+            try
+            {
+                com = new SqlCommand("INSERT INTO Guests VALUES(@firstname,@lastname,@countrycode,@notes)", con);
+                com.Parameters.AddWithValue("@firstname", firstNameBox.Text);
+                com.Parameters.AddWithValue("@lastname", lastNameBox.Text);
+                com.Parameters.AddWithValue("@countrycode", countryCodeBox.Text);
+                com.Parameters.AddWithValue("@notes", notesBox.Text);
+                com.ExecuteNonQuery();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
+        }
+
+        //updates in-app table view with relevant data
         private void UpdateView()
         {
             con.Open();
-            com = new SqlCommand(("select * from Guests order by GuestID"), con);
+            com = new SqlCommand(("SELECT * FROM Guests ORDER BY GuestID"), con);
             da = new SqlDataAdapter(com);
             DataTable table = new DataTable();
             da.Fill(table);
@@ -72,35 +82,108 @@ namespace HotelApp
             con.Close();
         }
 
+        //updates guest selected by guest ID
+        private void UpdateGuest()
+        {
+            con.Open();
+            try
+            {
+                com = new SqlCommand("UPDATE Guests SET FirstName=@firstname, LastName=@lastname, CountryCode=@countrycode, Notes=@notes WHERE GuestID=@id", con);
+                com.Parameters.AddWithValue("@id", int.Parse(GuestIDBox.Text));
+                com.Parameters.AddWithValue("@firstname", firstNameBox.Text);
+                com.Parameters.AddWithValue("@lastname", lastNameBox.Text);
+                com.Parameters.AddWithValue("@countrycode", countryCodeBox.Text);
+                com.Parameters.AddWithValue("@notes", notesBox.Text);
+                com.ExecuteNonQuery();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
+        }
+
+        //removes guest selected by guest ID
+        private void DeleteGuest()
+        {
+            con.Open();
+            try
+            {
+                com = new SqlCommand("DELETE FROM Guests WHERE GuestID=@id", con);
+                com.Parameters.AddWithValue("@id", GuestIDBox.Text);
+                com.ExecuteNonQuery();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
+        }
+
+        //clears textboxes
         private void ClearFields()
         {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
+            GuestIDBox.Clear();
+            firstNameBox.Clear();
+            lastNameBox.Clear();
+            countryCodeBox.Clear();
+            notesBox.Clear();
         }
 
+        //removes precedent selection state
         private void ResetView()
         {
-            panel2.Hide();
-            panel3.Hide();
-            button6.BackColor = Color.Gainsboro;
-            button7.BackColor = Color.Gainsboro;
-            button8.BackColor = Color.Gainsboro;
-            button9.BackColor = Color.Gainsboro;
+            infosPanel.Hide();
+            guestIDPanel.Hide();
+            viewButton.BackColor = Color.Gainsboro;
+            newButton.BackColor = Color.Gainsboro;
+            updateButton.BackColor = Color.Gainsboro;
+            removeButton.BackColor = Color.Gainsboro;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        //opens view table when View button is clicked
+        private void ViewButtonClick(object sender, EventArgs e)
         {
             ResetView();
-            activeView = 1;
-            button7.BackColor = Color.YellowGreen;
-            panel2.Show();
+            activeView = 0;
+            viewButton.BackColor = Color.YellowGreen;
             UpdateView();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        //opens new entry form when New button is clicked
+        private void NewButtonClick(object sender, EventArgs e)
+        {
+            ResetView();
+            activeView = 1;
+            newButton.BackColor = Color.YellowGreen;
+            infosPanel.Show();
+            UpdateView();
+        }
+
+        //opens update entry form when Update button is clicked
+        private void UpdateButtonClick(object sender, EventArgs e)
+        {
+            ResetView();
+            activeView = 2;
+            updateButton.BackColor = Color.YellowGreen;
+            guestIDPanel.Show();
+            UpdateView();
+        }
+
+        //opens remove entry form when Remove button is clicked
+        private void RemoveButtonClick(object sender, EventArgs e)
+        {
+            ResetView();
+            activeView = 3;
+            removeButton.BackColor = Color.YellowGreen;
+            guestIDPanel.Show();
+            UpdateView();
+        }
+
+        //confirms selected action with infos entered when Confirm button is clicked
+        private void ConfirmButtonClick(object sender, EventArgs e)
         {
             switch (activeView)
             {
@@ -112,110 +195,29 @@ namespace HotelApp
                     break;
                 case 3:
                     DeleteGuest();
-                    panel2.Hide();
+                    infosPanel.Hide();
                     break;
             }
             UpdateView();
         }
 
-
-        private void CreateGuest()
+        //gets infos related to entered room number when get button is clicked
+        private void GetButtonClick(object sender, EventArgs e)
         {
+            infosPanel.Show();
             con.Open();
-            try
-            {
-                com = new SqlCommand("insert into Guests Values(@firstname,@lastname,@countrycode,@notes)", con);
-                com.Parameters.AddWithValue("@firstname", textBox2.Text);
-                com.Parameters.AddWithValue("@lastname", textBox3.Text);
-                com.Parameters.AddWithValue("@countrycode", textBox4.Text);
-                com.Parameters.AddWithValue("@notes", textBox5.Text);
-                com.ExecuteNonQuery();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            con.Close();
-        }
-
-        private void UpdateGuest()
-        {
-            con.Open();
-            try
-            {
-                com = new SqlCommand("update Guests set firstname=@firstname, lastname=@lastname, countrycode=@countrycode, notes=@notes where GuestID=@id", con);
-                com.Parameters.AddWithValue("@id", int.Parse(textBox1.Text));
-                com.Parameters.AddWithValue("@firstname", textBox2.Text);
-                com.Parameters.AddWithValue("@lastname", textBox3.Text);
-                com.Parameters.AddWithValue("@countrycode", textBox4.Text);
-                com.Parameters.AddWithValue("@notes", textBox5.Text);
-                com.ExecuteNonQuery();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            con.Close();
-        }
-
-        private void DeleteGuest()
-        {
-            con.Open();
-            try
-            {
-                com = new SqlCommand("delete from Guests where GuestID=@id", con);
-                com.Parameters.AddWithValue("@id", textBox1.Text);
-                com.ExecuteNonQuery();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            con.Close();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            ResetView();
-            activeView = 2;
-            button8.BackColor = Color.YellowGreen;
-            panel3.Show();
-            UpdateView();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            ResetView();
-            activeView = 3;
-            button9.BackColor = Color.YellowGreen;
-            panel3.Show();
-            UpdateView();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            panel2.Show();
-            con.Open();
-            com = new SqlCommand("Select * from guests where GuestID=@id", con);
-            com.Parameters.AddWithValue("@id", textBox1.Text);
+            com = new SqlCommand("SELECT * FROM guests WHERE GuestID=@id", con);
+            com.Parameters.AddWithValue("@id", GuestIDBox.Text);
             dr = com.ExecuteReader();
             while (dr.Read())
             {
-                textBox1.Text = (dr.GetValue(0).ToString());
-                textBox2.Text = (dr.GetValue(1).ToString());
-                textBox3.Text = (dr.GetValue(2).ToString());
-                textBox4.Text = (dr.GetValue(3).ToString());
-                textBox5.Text = (dr.GetValue(4).ToString());
+                GuestIDBox.Text = dr.GetValue(0).ToString();
+                firstNameBox.Text = dr.GetValue(1).ToString();
+                lastNameBox.Text = dr.GetValue(2).ToString();
+                countryCodeBox.Text = dr.GetValue(3).ToString();
+                notesBox.Text = dr.GetValue(4).ToString();
             }
             con.Close();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

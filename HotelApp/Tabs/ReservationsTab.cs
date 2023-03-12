@@ -42,14 +42,14 @@ namespace HotelApp
                 case "Cleaning":
                     newButton.Hide();
                     removeButton.Hide();
-                    label2.Hide();
-                    label3.Hide();
-                    label4.Hide();
-                    label5.Hide();
-                    textBox2.Hide();
-                    textBox3.Hide();
-                    textBox4.Hide();
-                    textBox5.Hide();
+                    guestIDLabel.Hide();
+                    roomNumberLabel.Hide();
+                    checkInDateLabel.Hide();
+                    checkOutDateLabel.Hide();
+                    guestIDBox.Hide();
+                    roomNumberBox.Hide();
+                    checkInDateBox.Hide();
+                    checkOutDateBox.Hide();
                     break;
                 case "Desk":
                     removeButton.Hide();
@@ -63,12 +63,12 @@ namespace HotelApp
             con.Open();
             try
             {
-                com = new SqlCommand("INSERT INTO reservations VALUES(@GuestID, @RoomNumber, @CheckInDate, @CheckOutDate, null, null, null, @Notes)", con);
-                com.Parameters.AddWithValue("@GuestID", int.Parse(textBox2.Text));
-                com.Parameters.AddWithValue("@RoomNumber", int.Parse(textBox3.Text));
-                com.Parameters.AddWithValue("@CheckInDate", textBox4.Text);
-                com.Parameters.AddWithValue("@CheckOutDate", textBox5.Text);
-                com.Parameters.AddWithValue("@Notes", textBox6.Text);
+                com = new SqlCommand("INSERT INTO reservations VALUES(@guestid, @roomnumber, @checkindate, @checkoutdate, null, null, null, @notes)", con);
+                com.Parameters.AddWithValue("@guestid", int.Parse(guestIDBox.Text));
+                com.Parameters.AddWithValue("@roomnumber", int.Parse(roomNumberBox.Text));
+                com.Parameters.AddWithValue("@checkindate", checkInDateBox.Text);
+                com.Parameters.AddWithValue("@checkoutdate", checkOutDateBox.Text);
+                com.Parameters.AddWithValue("@notes", notesBox.Text);
                 com.ExecuteNonQuery();
                 ClearFields();
             }
@@ -85,12 +85,12 @@ namespace HotelApp
             con.Open();
             try
             {
-                com = new SqlCommand("UPDATE Reservations SET RoomNumber=@RoomNumber, CheckInDate=@CheckInDate, CheckOutDate=@CheckOutDate, notes=@notes WHERE ReservationID=@ReservationID", con);
-                com.Parameters.AddWithValue("@ReservationID", int.Parse(textBox1.Text));
-                com.Parameters.AddWithValue("@RoomNumber", int.Parse(textBox3.Text));
-                com.Parameters.AddWithValue("@CheckInDate", textBox4.Text);
-                com.Parameters.AddWithValue("@CheckOutDate", textBox5.Text);
-                com.Parameters.AddWithValue("@Notes", textBox6.Text);
+                com = new SqlCommand("UPDATE Reservations SET RoomNumber=@roomnumber, CheckInDate=@checkindate, CheckOutDate=@checkoutdate, Notes=@notes WHERE ReservationID=@reservationid", con);
+                com.Parameters.AddWithValue("@reservationid", int.Parse(reservationIDBox.Text));
+                com.Parameters.AddWithValue("@roomnumber", int.Parse(roomNumberBox.Text));
+                com.Parameters.AddWithValue("@checkindate", checkInDateBox.Text);
+                com.Parameters.AddWithValue("@checkoutdate", checkOutDateBox.Text);
+                com.Parameters.AddWithValue("@notes", notesBox.Text);
                 com.ExecuteNonQuery();
                 ClearFields();
             }
@@ -108,7 +108,7 @@ namespace HotelApp
             try
             {
                 com = new SqlCommand("DELETE FROM Reservations WHERE ReservationID=@id", con);
-                com.Parameters.AddWithValue("@id", int.Parse(textBox1.Text));
+                com.Parameters.AddWithValue("@id", int.Parse(reservationIDBox.Text));
                 com.ExecuteNonQuery();
                 ClearFields();
             }
@@ -134,19 +134,19 @@ namespace HotelApp
         //clears textboxes
         private void ClearFields()
         {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
+            reservationIDBox.Clear();
+            guestIDBox.Clear();
+            roomNumberBox.Clear();
+            checkInDateBox.Clear();
+            checkOutDateBox.Clear();
+            notesBox.Clear();
         }
 
         //removes precedent selection state
         private void ResetView()
         {
-            panel2.Hide();
-            panel3.Hide();
+            infosPanel.Hide();
+            reservationIDPanel.Hide();
             viewButton.BackColor = Color.Gainsboro;
             updateButton.BackColor = Color.Gainsboro;
             newButton.BackColor = Color.Gainsboro;
@@ -168,7 +168,7 @@ namespace HotelApp
             ResetView();
             activeView = 2;
             updateButton.BackColor = Color.YellowGreen;
-            panel3.Show();
+            reservationIDPanel.Show();
             UpdateView();
         }
 
@@ -179,7 +179,7 @@ namespace HotelApp
             ClearFields();
             activeView = 1;
             newButton.BackColor = Color.YellowGreen;
-            panel2.Show();
+            infosPanel.Show();
             UpdateView();
         }
 
@@ -189,7 +189,7 @@ namespace HotelApp
             ResetView();
             activeView = 3;
             removeButton.BackColor = Color.YellowGreen;
-            panel3.Show();
+            reservationIDPanel.Show();
             UpdateView();
         }
 
@@ -206,7 +206,7 @@ namespace HotelApp
                     break;
                 case 3:
                     DeleteReservation();
-                    panel2.Hide();
+                    infosPanel.Hide();
                     break;
             }
             UpdateView();
@@ -215,19 +215,19 @@ namespace HotelApp
         //gets infos related to entered room number when get button is clicked
         private void GetButtonClick(object sender, EventArgs e)
         {
-            panel2.Show();
+            infosPanel.Show();
             con.Open();
-            com = new SqlCommand("SELECT * FROM Reservations WHERE ReservationID=@ReservationID", con);
-            com.Parameters.AddWithValue("@ReservationID", textBox1.Text);
+            com = new SqlCommand("SELECT * FROM Reservations WHERE ReservationID=@reservationid", con);
+            com.Parameters.AddWithValue("@reservationid", reservationIDBox.Text);
             dr = com.ExecuteReader();
             while (dr.Read())
             {
-                textBox1.Text = dr.GetValue(0).ToString();
-                textBox2.Text = dr.GetValue(1).ToString();
-                textBox3.Text = dr.GetValue(2).ToString();
-                textBox4.Text = dr.GetValue(3).ToString();
-                textBox5.Text = dr.GetValue(4).ToString();
-                textBox6.Text = dr.GetValue(8).ToString();
+                reservationIDBox.Text = dr.GetValue(0).ToString();
+                guestIDBox.Text = dr.GetValue(1).ToString();
+                roomNumberBox.Text = dr.GetValue(2).ToString();
+                checkInDateBox.Text = dr.GetValue(3).ToString();
+                checkOutDateBox.Text = dr.GetValue(4).ToString();
+                notesBox.Text = dr.GetValue(8).ToString();
             }
             con.Close();
         }

@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Sql;
 using System.Data.SqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Configuration;
-using System.Runtime.InteropServices;
 
 namespace HotelApp
 {
     public partial class MainPage : Form
     {
+        private SqlConnection con;
+        private SqlCommand com;
+        private SqlDataReader dr;
+        private String role;
+        private int employeeID;
+        private LoginPage log;
+
         //receives the connection, the access level and the employeeID from the login page
         public MainPage(LoginPage log,String role, int id)
         {
@@ -29,13 +25,6 @@ namespace HotelApp
             SetMenu();
             PassSelfToTabs();
         }
-
-        private SqlConnection con;
-        private SqlCommand com;
-        private SqlDataReader dr;
-        private String role;
-        private int employeeID;
-        private LoginPage log;
 
         //sends this object to tabs to access get methods
         private void PassSelfToTabs()
@@ -54,17 +43,18 @@ namespace HotelApp
         }
 
         //returns connected users role for permission checks
-        public String GetRole()
+        public string GetRole()
         {
             return role;
         }
 
+        //returns employee ID for the connected user
         public int GetEmployeeID()
         {
             return employeeID;
         } 
 
-        //retrieves the logged employee's name for personnal greeting
+        //retrieves logged employee's name for personnal greeting
         private void SetEmpName()
         {
             con.Open();
@@ -73,8 +63,8 @@ namespace HotelApp
             dr = com.ExecuteReader();
             if (dr.Read())
             {
-                String empName = (dr.GetValue(0).ToString()).TrimEnd();
-                label1.Text = "Hello " + empName + "!";
+                string empName = dr.GetValue(0).ToString();
+                greetingsLabel.Text = "Hello " + empName + "!";
             }
             con.Close();
         }
@@ -84,57 +74,57 @@ namespace HotelApp
         {
             switch (role)
             {
-                case "admin":
-                    button4.Show();
-                    button5.Show();
+                case "Admin":
+                    reservationsButton.Show();
+                    employeesButton.Show();
                     break;
                 case "Boss":
-                    button4.Show();
-                    button5.Show();
+                    reservationsButton.Show();
+                    employeesButton.Show();
                     break;
                 case "Desk":
-                    button4.Show();
+                    reservationsButton.Show();
                     break;
             }
         }
 
-        //opens the task management panel
-        private void button1_Click(object sender, EventArgs e)
+        //opens task management panel
+        private void TasksButtonClick(object sender, EventArgs e)
         {
             HideTabs();
             tasksTab.Show();
         }
 
-        //opens the guest management panel
-        private void button2_Click(object sender, EventArgs e)
+        //opens guest management panel
+        private void GuestsButtonClick(object sender, EventArgs e)
         {
             HideTabs();
             guestsTab.Show();
         }
 
-        //opens the room management panel
-        private void button3_Click(object sender, EventArgs e)
+        //opens room management panel
+        private void RoomsButtonClick(object sender, EventArgs e)
         {
             HideTabs();
             roomsTab.Show();
         }
 
-        //opens the reservation management panel
-        private void button4_Click(object sender, EventArgs e)
+        //opens reservation management panel
+        private void ReservationButtonClick(object sender, EventArgs e)
         {
             HideTabs();
             reservationsTab.Show();
         }
 
-        //opens the employee management panel
-        private void button5_Click(object sender, EventArgs e)
+        //opens employee management panel
+        private void EmployeeButtonClick(object sender, EventArgs e)
         {
             HideTabs();
             employeesTab.Show();
         }
 
         //closes mainpage and returns to login
-        private void button6_Click(object sender, EventArgs e)
+        private void LogoutButtonClick(object sender, EventArgs e)
         {
             log.Show();
             this.Close();
@@ -143,10 +133,11 @@ namespace HotelApp
         //hides all tabs
         private void HideTabs()
         {
+            tasksTab.Hide();
             guestsTab.Hide();
-            employeesTab.Hide();
             roomsTab.Hide();
             reservationsTab.Hide();
+            employeesTab.Hide();
         }
     }
 }

@@ -28,101 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.loginLabel = new System.Windows.Forms.Label();
+            this.employeeIDLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.employeeIDBox = new System.Windows.Forms.TextBox();
+            this.passwordBox = new System.Windows.Forms.TextBox();
+            this.submitButton = new System.Windows.Forms.Button();
+            this.invCredLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // loginLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Heading", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label1.Location = new System.Drawing.Point(132, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(298, 139);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Login";
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Font = new System.Drawing.Font("Sitka Heading", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginLabel.ForeColor = System.Drawing.Color.YellowGreen;
+            this.loginLabel.Location = new System.Drawing.Point(132, 26);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(298, 139);
+            this.loginLabel.TabIndex = 0;
+            this.loginLabel.Text = "Login";
             // 
-            // label2
+            // employeeIDLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(186, 174);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 47);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Employee ID";
+            this.employeeIDLabel.AutoSize = true;
+            this.employeeIDLabel.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeIDLabel.Location = new System.Drawing.Point(186, 174);
+            this.employeeIDLabel.Name = "employeeIDLabel";
+            this.employeeIDLabel.Size = new System.Drawing.Size(175, 47);
+            this.employeeIDLabel.TabIndex = 1;
+            this.employeeIDLabel.Text = "Employee ID";
             // 
-            // label3
+            // passwordLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(202, 277);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 47);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Password";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel.Location = new System.Drawing.Point(202, 277);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(137, 47);
+            this.passwordLabel.TabIndex = 2;
+            this.passwordLabel.Text = "Password";
             // 
-            // textBox1
+            // employeeIDBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(165, 233);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 32);
-            this.textBox1.TabIndex = 3;
+            this.employeeIDBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeIDBox.Location = new System.Drawing.Point(165, 233);
+            this.employeeIDBox.Name = "employeeIDBox";
+            this.employeeIDBox.Size = new System.Drawing.Size(223, 32);
+            this.employeeIDBox.TabIndex = 3;
             // 
-            // textBox2
+            // passwordBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(165, 336);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(223, 32);
-            this.textBox2.TabIndex = 4;
+            this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordBox.Location = new System.Drawing.Point(165, 336);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.PasswordChar = '*';
+            this.passwordBox.Size = new System.Drawing.Size(223, 32);
+            this.passwordBox.TabIndex = 4;
             // 
-            // button1
+            // submitButton
             // 
-            this.button1.BackColor = System.Drawing.Color.YellowGreen;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.YellowGreen;
-            this.button1.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(210, 389);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 59);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.submitButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.submitButton.FlatAppearance.BorderColor = System.Drawing.Color.YellowGreen;
+            this.submitButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Location = new System.Drawing.Point(210, 389);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(128, 59);
+            this.submitButton.TabIndex = 5;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = false;
+            this.submitButton.Click += new System.EventHandler(this.SubmitButtonClick);
             // 
-            // label4
+            // invCredLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Sitka Display", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.IndianRed;
-            this.label4.Location = new System.Drawing.Point(120, 478);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(318, 47);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Invalid Credentials x0";
-            this.label4.Visible = false;
+            this.invCredLabel.AutoSize = true;
+            this.invCredLabel.Font = new System.Drawing.Font("Sitka Display", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invCredLabel.ForeColor = System.Drawing.Color.IndianRed;
+            this.invCredLabel.Location = new System.Drawing.Point(120, 478);
+            this.invCredLabel.Name = "invCredLabel";
+            this.invCredLabel.Size = new System.Drawing.Size(318, 47);
+            this.invCredLabel.TabIndex = 6;
+            this.invCredLabel.Text = "Invalid Credentials x0";
+            this.invCredLabel.Visible = false;
             // 
-            // Login
+            // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 619);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Login";
+            this.Controls.Add(this.invCredLabel);
+            this.Controls.Add(this.submitButton);
+            this.Controls.Add(this.passwordBox);
+            this.Controls.Add(this.employeeIDBox);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.employeeIDLabel);
+            this.Controls.Add(this.loginLabel);
+            this.Name = "LoginPage";
             this.Text = "Hotel App";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -131,13 +131,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label loginLabel;
+        private System.Windows.Forms.Label employeeIDLabel;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.TextBox employeeIDBox;
+        private System.Windows.Forms.TextBox passwordBox;
+        private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Label invCredLabel;
     }
 }
 
