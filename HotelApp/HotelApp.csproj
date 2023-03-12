@@ -215,6 +215,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationsTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReservationsTab.Designer.cs">
+      <DependentUpon>ReservationsTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoomsTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -242,6 +248,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReservationsTab.resx">
+      <DependentUpon>ReservationsTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoomsTab.resx">
       <DependentUpon>RoomsTab.cs</DependentUpon>
     </EmbeddedResource>

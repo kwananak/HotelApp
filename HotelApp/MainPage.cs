@@ -38,9 +38,10 @@ namespace HotelApp
 
         private void PassValuesToTabs()
         {            
-            guestsTab1.SetAtt(this);
-            employeesTab1.SetAtt(this);
-            roomsTab1.SetAtt(this);
+            guestsTab.SetAtt(this);
+            employeesTab.SetAtt(this);
+            roomsTab.SetAtt(this);
+            reservationsTab.SetAtt(this);
         }
 
         //retrieves the logged employee's name for personnal greeting
@@ -89,22 +90,23 @@ namespace HotelApp
         private void button2_Click(object sender, EventArgs e)
         {
             HideTabs();
-            guestsTab1.Show();
+            guestsTab.Show();
         }
 
         //opens the employee management panel
         private void button5_Click(object sender, EventArgs e)
         {
             HideTabs();
-            employeesTab1.Show();
+            employeesTab.Show();
         }
 
 
         private void HideTabs()
         {
-            guestsTab1.Hide();
-            employeesTab1.Hide();
-            roomsTab1.Hide();
+            guestsTab.Hide();
+            employeesTab.Hide();
+            roomsTab.Hide();
+            reservationsTab.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -116,7 +118,13 @@ namespace HotelApp
         private void button3_Click(object sender, EventArgs e)
         {
             HideTabs();
-            roomsTab1.Show();
+            roomsTab.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            HideTabs();
+            reservationsTab.Show();
         }
     }
 }

@@ -42,9 +42,10 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.button6 = new System.Windows.Forms.Button();
-            this.employeesTab1 = new HotelApp.EmployeesTab();
-            this.guestsTab1 = new HotelApp.GuestsTab();
-            this.roomsTab1 = new HotelApp.RoomsTab();
+            this.reservationsTab = new HotelApp.ReservationsTab();
+            this.roomsTab = new HotelApp.RoomsTab();
+            this.employeesTab = new HotelApp.EmployeesTab();
+            this.guestsTab = new HotelApp.GuestsTab();
             ((System.ComponentModel.ISupportInitialize)(this.hotelAppDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -106,6 +107,7 @@
             this.button4.Text = "Reservations";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -150,37 +152,43 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // employeesTab1
+            // reservationsTab
             // 
-            this.employeesTab1.Location = new System.Drawing.Point(262, 120);
-            this.employeesTab1.Name = "employeesTab1";
-            this.employeesTab1.Size = new System.Drawing.Size(877, 574);
-            this.employeesTab1.TabIndex = 1;
-            this.employeesTab1.Visible = false;
+            this.reservationsTab.Location = new System.Drawing.Point(253, 120);
+            this.reservationsTab.Name = "reservationsTab";
+            this.reservationsTab.Size = new System.Drawing.Size(872, 574);
+            this.reservationsTab.TabIndex = 8;
+            this.reservationsTab.Visible = false;
             // 
-            // guestsTab1
+            // roomsTab
             // 
-            this.guestsTab1.Location = new System.Drawing.Point(269, 120);
-            this.guestsTab1.Name = "guestsTab1";
-            this.guestsTab1.Size = new System.Drawing.Size(870, 571);
-            this.guestsTab1.TabIndex = 0;
-            this.guestsTab1.Visible = false;
+            this.roomsTab.Location = new System.Drawing.Point(253, 120);
+            this.roomsTab.Name = "roomsTab";
+            this.roomsTab.Size = new System.Drawing.Size(877, 575);
+            this.roomsTab.TabIndex = 7;
+            this.roomsTab.Visible = false;
             // 
-            // roomsTab1
+            // employeesTab
             // 
-            this.roomsTab1.Location = new System.Drawing.Point(262, 120);
-            this.roomsTab1.Name = "roomsTab1";
-            this.roomsTab1.Size = new System.Drawing.Size(877, 575);
-            this.roomsTab1.TabIndex = 7;
-            this.roomsTab1.Visible = false;
+            this.employeesTab.Location = new System.Drawing.Point(253, 120);
+            this.employeesTab.Name = "employeesTab";
+            this.employeesTab.Size = new System.Drawing.Size(877, 574);
+            this.employeesTab.TabIndex = 1;
+            this.employeesTab.Visible = false;
+            // 
+            // guestsTab
+            // 
+            this.guestsTab.Location = new System.Drawing.Point(253, 120);
+            this.guestsTab.Name = "guestsTab";
+            this.guestsTab.Size = new System.Drawing.Size(870, 571);
+            this.guestsTab.TabIndex = 0;
+            this.guestsTab.Visible = false;
             // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1151, 714);
-            this.Controls.Add(this.roomsTab1);
-            this.Controls.Add(this.employeesTab1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -188,7 +196,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guestsTab1);
+            this.Controls.Add(this.reservationsTab);
+            this.Controls.Add(this.roomsTab);
+            this.Controls.Add(this.employeesTab);
+            this.Controls.Add(this.guestsTab);
             this.Name = "MainPage";
             this.Text = "Hotel App";
             ((System.ComponentModel.ISupportInitialize)(this.hotelAppDataSet)).EndInit();
@@ -212,9 +223,10 @@
         private HotelAppDataSetTableAdapters.GuestsTableAdapter guestsTableAdapter1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private GuestsTab guestsTab1;
-        private EmployeesTab employeesTab1;
+        private GuestsTab guestsTab;
+        private EmployeesTab employeesTab;
         private System.Windows.Forms.Button button6;
-        private RoomsTab roomsTab1;
+        private RoomsTab roomsTab;
+        private ReservationsTab reservationsTab;
     }
 }
