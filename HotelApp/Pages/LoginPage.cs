@@ -12,9 +12,9 @@ using System.Data.SqlClient;
 
 namespace HotelApp
 {
-    public partial class Login : Form
+    public partial class LoginPage : Form
     {
-        public Login()
+        public LoginPage()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace HotelApp
         private SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-I6V3SE2;Initial Catalog=HotelApp;Integrated Security=True");
         private SqlCommand com;
         private SqlDataReader dr;
-        private String role = null;
+        private string role;
         private int invCredCount = 0;
 
         public SqlConnection GetCon()
@@ -31,28 +31,25 @@ namespace HotelApp
             return con;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //checks the credentials against the employee list to confirm access and opens the main page in the appropriate format
+        //checks the credentials against the employee list to confirm access and opens the main page
         private void button1_Click(object sender, EventArgs e)
         {
             con.Open();
             try
             {
                 int id = int.Parse(textBox1.Text);
-                com = new SqlCommand("Select Role from Employees where EmployeeID=@id and Password=@password", con);
+                com = new SqlCommand("SELECT Role FROM Employees WHERE EmployeeID=@id AND Password=@password", con);
                 com.Parameters.AddWithValue("@id", id);
                 com.Parameters.AddWithValue("@password", textBox2.Text);
                 dr = com.ExecuteReader();
                 if (dr.Read())
                 {
-                    role = (dr.GetValue(0).ToString()).TrimEnd();
+                    role = dr.GetValue(0).ToString().TrimEnd();
                     con.Close();
                     MainPage mp = new MainPage(this, role, id);
                     mp.Show();
+                    textBox1.Clear();
+                    textBox2.Clear();
                     this.Hide();
                 } else
                 {

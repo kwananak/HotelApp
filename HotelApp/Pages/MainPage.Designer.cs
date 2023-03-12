@@ -46,6 +46,7 @@
             this.roomsTab = new HotelApp.RoomsTab();
             this.employeesTab = new HotelApp.EmployeesTab();
             this.guestsTab = new HotelApp.GuestsTab();
+            this.tasksTab = new HotelApp.TasksTab();
             ((System.ComponentModel.ISupportInitialize)(this.hotelAppDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -53,29 +54,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Sitka Heading", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label1.Location = new System.Drawing.Point(207, 30);
+            this.label1.Location = new System.Drawing.Point(152, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(489, 55);
+            this.label1.Size = new System.Drawing.Size(559, 81);
             this.label1.TabIndex = 0;
             this.label1.Text = "Hello <Placeholder>!";
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.YellowGreen;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(34, 120);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 94);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Today\'s tasks";
+            this.button1.Text = "Tasks";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.YellowGreen;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(34, 243);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(213, 94);
@@ -87,7 +89,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.YellowGreen;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(34, 361);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(213, 94);
@@ -99,7 +101,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.YellowGreen;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(34, 481);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(213, 94);
@@ -112,7 +114,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.YellowGreen;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(34, 608);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(213, 94);
@@ -184,6 +186,14 @@
             this.guestsTab.TabIndex = 0;
             this.guestsTab.Visible = false;
             // 
+            // todaysTasksTab
+            // 
+            this.tasksTab.Location = new System.Drawing.Point(253, 120);
+            this.tasksTab.Name = "todaysTasksTab";
+            this.tasksTab.Size = new System.Drawing.Size(872, 574);
+            this.tasksTab.TabIndex = 9;
+            this.tasksTab.Visible = false;
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +210,7 @@
             this.Controls.Add(this.roomsTab);
             this.Controls.Add(this.employeesTab);
             this.Controls.Add(this.guestsTab);
+            this.Controls.Add(this.tasksTab);
             this.Name = "MainPage";
             this.Text = "Hotel App";
             ((System.ComponentModel.ISupportInitialize)(this.hotelAppDataSet)).EndInit();
@@ -228,5 +239,6 @@
         private System.Windows.Forms.Button button6;
         private RoomsTab roomsTab;
         private ReservationsTab reservationsTab;
+        private TasksTab tasksTab;
     }
 }

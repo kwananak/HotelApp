@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HotelApp
 {
@@ -57,16 +58,16 @@ namespace HotelApp
         }
 
         //adds reservation to table with entered attributes
-        private void CreateRoom()
+        private void CreateReservation()
         {
             con.Open();
             try
             {
-                com = new SqlCommand("insert into reservations Values(@GuestID, @RoomNumber, @CheckInDate, @Length, null, null, null, @Notes)", con);
+                com = new SqlCommand("INSERT INTO reservations VALUES(@GuestID, @RoomNumber, @CheckInDate, @CheckOutDate, null, null, null, @Notes)", con);
                 com.Parameters.AddWithValue("@GuestID", int.Parse(textBox2.Text));
                 com.Parameters.AddWithValue("@RoomNumber", int.Parse(textBox3.Text));
                 com.Parameters.AddWithValue("@CheckInDate", textBox4.Text);
-                com.Parameters.AddWithValue("@Length", int.Parse(textBox5.Text));
+                com.Parameters.AddWithValue("@CheckOutDate", textBox5.Text);
                 com.Parameters.AddWithValue("@Notes", textBox6.Text);
                 com.ExecuteNonQuery();
                 ClearFields();
@@ -79,16 +80,16 @@ namespace HotelApp
         }
 
         //updates room selected by room number with entered attributes
-        private void UpdateRoom()
+        private void UpdateReservation()
         {
             con.Open();
             try
             {
-                com = new SqlCommand("UPDATE Reservations SET RoomNumber=@RoomNumber, CheckInDate=@CheckInDate, Length=@Length, notes=@notes WHERE ReservationID=@ReservationID", con);
+                com = new SqlCommand("UPDATE Reservations SET RoomNumber=@RoomNumber, CheckInDate=@CheckInDate, CheckOutDate=@CheckOutDate, notes=@notes WHERE ReservationID=@ReservationID", con);
                 com.Parameters.AddWithValue("@ReservationID", int.Parse(textBox1.Text));
                 com.Parameters.AddWithValue("@RoomNumber", int.Parse(textBox3.Text));
                 com.Parameters.AddWithValue("@CheckInDate", textBox4.Text);
-                com.Parameters.AddWithValue("@Length", int.Parse(textBox5.Text));
+                com.Parameters.AddWithValue("@CheckOutDate", textBox5.Text);
                 com.Parameters.AddWithValue("@Notes", textBox6.Text);
                 com.ExecuteNonQuery();
                 ClearFields();
@@ -101,12 +102,12 @@ namespace HotelApp
         }
 
         //removes room selected by room number
-        private void DeleteRoom()
+        private void DeleteReservation()
         {
             con.Open();
             try
             {
-                com = new SqlCommand("delete from Reservations where ReservationID=@id", con);
+                com = new SqlCommand("DELETE FROM Reservations WHERE ReservationID=@id", con);
                 com.Parameters.AddWithValue("@id", int.Parse(textBox1.Text));
                 com.ExecuteNonQuery();
                 ClearFields();
@@ -122,7 +123,7 @@ namespace HotelApp
         private void UpdateView()
         {
             con.Open();
-            com = new SqlCommand(("select * from Reservations order by CheckInDate"), con);
+            com = new SqlCommand(("SELECT reservationID AS 'Reservation ID', CONCAT(Guests.FirstName, Guests.LastName) AS 'Guest Name', RoomNumber AS 'Room Number', CheckInDate AS 'Check In Date', CheckOutDate AS 'Check Out Date', CheckedInBy AS 'Checked In By', CheckedOutBy AS 'Checked Out By', CleanedBy AS 'Cleaned By', Reservations.Notes FROM Reservations JOIN Guests ON Reservations.GuestID=Guests.GuestID ORDER BY CheckInDate"), con);
             da = new SqlDataAdapter(com);
             DataTable table = new DataTable();
             da.Fill(table);
@@ -136,6 +137,9 @@ namespace HotelApp
             textBox1.Clear();
             textBox2.Clear();
             textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
         }
 
         //removes precedent selection state
@@ -150,7 +154,7 @@ namespace HotelApp
         }
 
         //opens view table when View button is clicked
-        private void viewButton_Click(object sender, EventArgs e)
+        private void ViewButtonClick(object sender, EventArgs e)
         {
             ResetView();
             activeView = 0;
@@ -159,7 +163,7 @@ namespace HotelApp
         }
 
         //opens update entry form when Update button is clicked
-        private void updateButton_Click(object sender, EventArgs e)
+        private void UpdateButtonClick(object sender, EventArgs e)
         {
             ResetView();
             activeView = 2;
@@ -169,7 +173,7 @@ namespace HotelApp
         }
 
         //opens new entry form when New button is clicked
-        private void newButton_Click(object sender, EventArgs e)
+        private void NewButtonClick(object sender, EventArgs e)
         {
             ResetView();
             ClearFields();
@@ -180,7 +184,7 @@ namespace HotelApp
         }
 
         //opens remove entry form when Update button is clicked
-        private void removeButton_Click(object sender, EventArgs e)
+        private void RemoveButtonClick(object sender, EventArgs e)
         {
             ResetView();
             activeView = 3;
@@ -190,18 +194,18 @@ namespace HotelApp
         }
 
         //confirms selected action with infos entered when Confirm button is clicked
-        private void confirmButton_Click(object sender, EventArgs e)
+        private void ConfirmButtonClick(object sender, EventArgs e)
         {
             switch (activeView)
             {
                 case 1:
-                    CreateRoom();
+                    CreateReservation();
                     break;
                 case 2:
-                    UpdateRoom();
+                    UpdateReservation();
                     break;
                 case 3:
-                    DeleteRoom();
+                    DeleteReservation();
                     panel2.Hide();
                     break;
             }
@@ -209,21 +213,21 @@ namespace HotelApp
         }
 
         //gets infos related to entered room number when get button is clicked
-        private void getButton_Click(object sender, EventArgs e)
+        private void GetButtonClick(object sender, EventArgs e)
         {
             panel2.Show();
             con.Open();
-            com = new SqlCommand("Select * from Reservations where ReservationID=@ReservationID", con);
+            com = new SqlCommand("SELECT * FROM Reservations WHERE ReservationID=@ReservationID", con);
             com.Parameters.AddWithValue("@ReservationID", textBox1.Text);
             dr = com.ExecuteReader();
             while (dr.Read())
             {
-                textBox1.Text = (dr.GetValue(0).ToString());
-                textBox2.Text = (dr.GetValue(1).ToString());
-                textBox3.Text = (dr.GetValue(2).ToString());
-                textBox4.Text = (dr.GetValue(3).ToString());
-                textBox5.Text = (dr.GetValue(4).ToString());
-                textBox6.Text = (dr.GetValue(8).ToString());
+                textBox1.Text = dr.GetValue(0).ToString();
+                textBox2.Text = dr.GetValue(1).ToString();
+                textBox3.Text = dr.GetValue(2).ToString();
+                textBox4.Text = dr.GetValue(3).ToString();
+                textBox5.Text = dr.GetValue(4).ToString();
+                textBox6.Text = dr.GetValue(8).ToString();
             }
             con.Close();
         }

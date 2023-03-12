@@ -1,6 +1,6 @@
 ﻿namespace HotelApp
 {
-    partial class Login
+    partial class LoginPage
     {
         /// <summary>
         /// Required designer variable.
@@ -40,32 +40,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Sitka Heading", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label1.Location = new System.Drawing.Point(176, 60);
+            this.label1.Location = new System.Drawing.Point(132, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 73);
+            this.label1.Size = new System.Drawing.Size(298, 139);
             this.label1.TabIndex = 0;
             this.label1.Text = "Login";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(174, 183);
+            this.label2.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(186, 174);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 37);
+            this.label2.Size = new System.Drawing.Size(175, 47);
             this.label2.TabIndex = 1;
             this.label2.Text = "Employee ID";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(194, 287);
+            this.label3.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(202, 277);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 37);
+            this.label3.Size = new System.Drawing.Size(137, 47);
             this.label3.TabIndex = 2;
             this.label3.Text = "Password";
             // 
@@ -90,7 +89,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.YellowGreen;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.YellowGreen;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(210, 389);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 59);
@@ -102,11 +101,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Sitka Display", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.IndianRed;
             this.label4.Location = new System.Drawing.Point(120, 478);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(320, 37);
+            this.label4.Size = new System.Drawing.Size(318, 47);
             this.label4.TabIndex = 6;
             this.label4.Text = "Invalid Credentials x0";
             this.label4.Visible = false;
