@@ -136,7 +136,7 @@ namespace HotelApp
         {
             ResetView();
             activeView = 0;
-            viewButton.BackColor = Color.YellowGreen;
+            viewButton.BackColor = Color.Goldenrod;
             UpdateView();
         }
 
@@ -146,7 +146,7 @@ namespace HotelApp
             ResetView();
             ClearFields();
             activeView = 1;
-            newButton.BackColor = Color.YellowGreen;
+            newButton.BackColor = Color.Goldenrod;
             getButton.Hide();
             guestIDLabel.Hide();
             guestIDBox.Hide();
@@ -163,7 +163,7 @@ namespace HotelApp
             getButton.Show();
             guestIDLabel.Show();
             guestIDBox.Show();
-            updateButton.BackColor = Color.YellowGreen;
+            updateButton.BackColor = Color.Goldenrod;
             roomNumberPanel.Show();
             UpdateView();
         }
@@ -176,7 +176,7 @@ namespace HotelApp
             getButton.Show();
             guestIDLabel.Show();
             guestIDBox.Show();
-            removeButton.BackColor = Color.YellowGreen;
+            removeButton.BackColor = Color.Goldenrod;
             roomNumberPanel.Show();
             UpdateView();
         }

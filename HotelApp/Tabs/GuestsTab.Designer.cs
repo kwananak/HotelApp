@@ -83,6 +83,7 @@
             // guestIDLabel
             // 
             this.guestIDLabel.AutoSize = true;
+            this.guestIDLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.guestIDLabel.Location = new System.Drawing.Point(4, 5);
             this.guestIDLabel.Name = "guestIDLabel";
             this.guestIDLabel.Size = new System.Drawing.Size(49, 13);
@@ -109,6 +110,7 @@
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.firstNameLabel.Location = new System.Drawing.Point(3, 2);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(57, 13);
@@ -117,7 +119,7 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.confirmButton.BackColor = System.Drawing.Color.Goldenrod;
             this.confirmButton.Location = new System.Drawing.Point(17, 216);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(75, 23);
@@ -129,6 +131,7 @@
             // notesLabel
             // 
             this.notesLabel.AutoSize = true;
+            this.notesLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.notesLabel.Location = new System.Drawing.Point(4, 119);
             this.notesLabel.Name = "notesLabel";
             this.notesLabel.Size = new System.Drawing.Size(35, 13);
@@ -153,6 +156,7 @@
             // countryCodeLabel
             // 
             this.countryCodeLabel.AutoSize = true;
+            this.countryCodeLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.countryCodeLabel.Location = new System.Drawing.Point(3, 80);
             this.countryCodeLabel.Name = "countryCodeLabel";
             this.countryCodeLabel.Size = new System.Drawing.Size(71, 13);
@@ -162,6 +166,7 @@
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lastNameLabel.Location = new System.Drawing.Point(3, 41);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(58, 13);

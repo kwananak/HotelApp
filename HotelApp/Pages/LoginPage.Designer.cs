@@ -40,8 +40,9 @@
             // loginLabel
             // 
             this.loginLabel.AutoSize = true;
+            this.loginLabel.BackColor = System.Drawing.Color.Transparent;
             this.loginLabel.Font = new System.Drawing.Font("Sitka Heading", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.ForeColor = System.Drawing.Color.YellowGreen;
+            this.loginLabel.ForeColor = System.Drawing.Color.Goldenrod;
             this.loginLabel.Location = new System.Drawing.Point(132, 26);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(298, 139);
@@ -51,7 +52,9 @@
             // employeeIDLabel
             // 
             this.employeeIDLabel.AutoSize = true;
+            this.employeeIDLabel.BackColor = System.Drawing.Color.Transparent;
             this.employeeIDLabel.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeIDLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.employeeIDLabel.Location = new System.Drawing.Point(186, 174);
             this.employeeIDLabel.Name = "employeeIDLabel";
             this.employeeIDLabel.Size = new System.Drawing.Size(175, 47);
@@ -61,7 +64,9 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
+            this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
             this.passwordLabel.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.passwordLabel.Location = new System.Drawing.Point(202, 277);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(137, 47);
@@ -70,25 +75,29 @@
             // 
             // employeeIDBox
             // 
+            this.employeeIDBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.employeeIDBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeIDBox.Location = new System.Drawing.Point(165, 233);
             this.employeeIDBox.Name = "employeeIDBox";
             this.employeeIDBox.Size = new System.Drawing.Size(223, 32);
             this.employeeIDBox.TabIndex = 3;
+            this.employeeIDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // passwordBox
             // 
+            this.passwordBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordBox.Location = new System.Drawing.Point(165, 336);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(223, 32);
             this.passwordBox.TabIndex = 4;
+            this.passwordBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // submitButton
             // 
-            this.submitButton.BackColor = System.Drawing.Color.YellowGreen;
-            this.submitButton.FlatAppearance.BorderColor = System.Drawing.Color.YellowGreen;
+            this.submitButton.BackColor = System.Drawing.Color.Goldenrod;
+            this.submitButton.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
             this.submitButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitButton.Location = new System.Drawing.Point(210, 389);
             this.submitButton.Name = "submitButton";
@@ -101,8 +110,9 @@
             // invCredLabel
             // 
             this.invCredLabel.AutoSize = true;
+            this.invCredLabel.BackColor = System.Drawing.Color.IndianRed;
             this.invCredLabel.Font = new System.Drawing.Font("Sitka Display", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invCredLabel.ForeColor = System.Drawing.Color.IndianRed;
+            this.invCredLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.invCredLabel.Location = new System.Drawing.Point(120, 478);
             this.invCredLabel.Name = "invCredLabel";
             this.invCredLabel.Size = new System.Drawing.Size(318, 47);
@@ -114,7 +124,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 619);
+            this.BackgroundImage = global::HotelApp.Properties.Resources.MoXv2UnPM8KC2I8ETsFe__1__luryj;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(578, 676);
             this.Controls.Add(this.invCredLabel);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.passwordBox);

@@ -113,7 +113,7 @@ namespace HotelApp
         private void ViewButtonClick(object sender, EventArgs e)
         {
             ResetView();
-            viewButton.BackColor = Color.YellowGreen;
+            viewButton.BackColor = Color.Goldenrod;
             UpdateView();
         }
 
@@ -121,7 +121,7 @@ namespace HotelApp
         private void CompleteButtonClick(object sender, EventArgs e)
         {
             ResetView();
-            completeButton.BackColor = Color.YellowGreen;
+            completeButton.BackColor = Color.Goldenrod;
             reservationIDPanel.Show();
             UpdateView();
         }

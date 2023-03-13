@@ -54,8 +54,9 @@
             // greetingsLabel
             // 
             this.greetingsLabel.AutoSize = true;
+            this.greetingsLabel.BackColor = System.Drawing.Color.Transparent;
             this.greetingsLabel.Font = new System.Drawing.Font("Sitka Heading", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.greetingsLabel.ForeColor = System.Drawing.Color.YellowGreen;
+            this.greetingsLabel.ForeColor = System.Drawing.Color.Goldenrod;
             this.greetingsLabel.Location = new System.Drawing.Point(152, 25);
             this.greetingsLabel.Name = "greetingsLabel";
             this.greetingsLabel.Size = new System.Drawing.Size(559, 81);
@@ -64,8 +65,9 @@
             // 
             // tasksButton
             // 
-            this.tasksButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.tasksButton.BackColor = System.Drawing.Color.Goldenrod;
             this.tasksButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tasksButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.tasksButton.Location = new System.Drawing.Point(34, 120);
             this.tasksButton.Name = "tasksButton";
             this.tasksButton.Size = new System.Drawing.Size(213, 94);
@@ -76,8 +78,9 @@
             // 
             // guestsButton
             // 
-            this.guestsButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.guestsButton.BackColor = System.Drawing.Color.Goldenrod;
             this.guestsButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guestsButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.guestsButton.Location = new System.Drawing.Point(34, 243);
             this.guestsButton.Name = "guestsButton";
             this.guestsButton.Size = new System.Drawing.Size(213, 94);
@@ -88,8 +91,9 @@
             // 
             // roomsButton
             // 
-            this.roomsButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.roomsButton.BackColor = System.Drawing.Color.Goldenrod;
             this.roomsButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roomsButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.roomsButton.Location = new System.Drawing.Point(34, 361);
             this.roomsButton.Name = "roomsButton";
             this.roomsButton.Size = new System.Drawing.Size(213, 94);
@@ -100,8 +104,9 @@
             // 
             // reservationsButton
             // 
-            this.reservationsButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.reservationsButton.BackColor = System.Drawing.Color.Goldenrod;
             this.reservationsButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reservationsButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.reservationsButton.Location = new System.Drawing.Point(34, 481);
             this.reservationsButton.Name = "reservationsButton";
             this.reservationsButton.Size = new System.Drawing.Size(213, 94);
@@ -113,8 +118,9 @@
             // 
             // employeesButton
             // 
-            this.employeesButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.employeesButton.BackColor = System.Drawing.Color.Goldenrod;
             this.employeesButton.Font = new System.Drawing.Font("Sitka Banner", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeesButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.employeesButton.Location = new System.Drawing.Point(34, 608);
             this.employeesButton.Name = "employeesButton";
             this.employeesButton.Size = new System.Drawing.Size(213, 94);
@@ -146,6 +152,7 @@
             // 
             this.logoutButton.BackColor = System.Drawing.Color.IndianRed;
             this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.logoutButton.Location = new System.Drawing.Point(13, 13);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(102, 43);
@@ -156,6 +163,7 @@
             // 
             // reservationsTab
             // 
+            this.reservationsTab.BackColor = System.Drawing.Color.Transparent;
             this.reservationsTab.Location = new System.Drawing.Point(253, 120);
             this.reservationsTab.Name = "reservationsTab";
             this.reservationsTab.Size = new System.Drawing.Size(872, 574);
@@ -164,6 +172,7 @@
             // 
             // roomsTab
             // 
+            this.roomsTab.BackColor = System.Drawing.Color.Transparent;
             this.roomsTab.Location = new System.Drawing.Point(253, 120);
             this.roomsTab.Name = "roomsTab";
             this.roomsTab.Size = new System.Drawing.Size(877, 575);
@@ -172,6 +181,7 @@
             // 
             // employeesTab
             // 
+            this.employeesTab.BackColor = System.Drawing.Color.Transparent;
             this.employeesTab.Location = new System.Drawing.Point(253, 120);
             this.employeesTab.Name = "employeesTab";
             this.employeesTab.Size = new System.Drawing.Size(877, 574);
@@ -180,6 +190,7 @@
             // 
             // guestsTab
             // 
+            this.guestsTab.BackColor = System.Drawing.Color.Transparent;
             this.guestsTab.Location = new System.Drawing.Point(253, 120);
             this.guestsTab.Name = "guestsTab";
             this.guestsTab.Size = new System.Drawing.Size(870, 571);
@@ -188,6 +199,7 @@
             // 
             // tasksTab
             // 
+            this.tasksTab.BackColor = System.Drawing.Color.Transparent;
             this.tasksTab.Location = new System.Drawing.Point(253, 120);
             this.tasksTab.Name = "tasksTab";
             this.tasksTab.Size = new System.Drawing.Size(872, 574);
@@ -198,6 +210,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::HotelApp.Properties.Resources.ao17ME73HFn3OydGBJAw__1__4uelt;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1151, 714);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.employeesButton);
@@ -206,11 +220,11 @@
             this.Controls.Add(this.guestsButton);
             this.Controls.Add(this.tasksButton);
             this.Controls.Add(this.greetingsLabel);
+            this.Controls.Add(this.guestsTab);
+            this.Controls.Add(this.tasksTab);
             this.Controls.Add(this.reservationsTab);
             this.Controls.Add(this.roomsTab);
             this.Controls.Add(this.employeesTab);
-            this.Controls.Add(this.guestsTab);
-            this.Controls.Add(this.tasksTab);
             this.Name = "MainPage";
             this.Text = "Hotel App";
             ((System.ComponentModel.ISupportInitialize)(this.hotelAppDataSet)).EndInit();

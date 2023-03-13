@@ -76,6 +76,7 @@
             // guestIDLabel
             // 
             this.guestIDLabel.AutoSize = true;
+            this.guestIDLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.guestIDLabel.Location = new System.Drawing.Point(3, 2);
             this.guestIDLabel.Name = "guestIDLabel";
             this.guestIDLabel.Size = new System.Drawing.Size(49, 13);
@@ -85,6 +86,7 @@
             // roomNumberLabel
             // 
             this.roomNumberLabel.AutoSize = true;
+            this.roomNumberLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.roomNumberLabel.Location = new System.Drawing.Point(3, 41);
             this.roomNumberLabel.Name = "roomNumberLabel";
             this.roomNumberLabel.Size = new System.Drawing.Size(75, 13);
@@ -94,6 +96,7 @@
             // checkInDateLabel
             // 
             this.checkInDateLabel.AutoSize = true;
+            this.checkInDateLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.checkInDateLabel.Location = new System.Drawing.Point(3, 80);
             this.checkInDateLabel.Name = "checkInDateLabel";
             this.checkInDateLabel.Size = new System.Drawing.Size(76, 13);
@@ -103,6 +106,7 @@
             // checkOutDateLabel
             // 
             this.checkOutDateLabel.AutoSize = true;
+            this.checkOutDateLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.checkOutDateLabel.Location = new System.Drawing.Point(3, 119);
             this.checkOutDateLabel.Name = "checkOutDateLabel";
             this.checkOutDateLabel.Size = new System.Drawing.Size(84, 13);
@@ -112,6 +116,7 @@
             // notesLabel
             // 
             this.notesLabel.AutoSize = true;
+            this.notesLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.notesLabel.Location = new System.Drawing.Point(3, 158);
             this.notesLabel.Name = "notesLabel";
             this.notesLabel.Size = new System.Drawing.Size(35, 13);
@@ -158,7 +163,7 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.confirmButton.BackColor = System.Drawing.Color.Goldenrod;
             this.confirmButton.Location = new System.Drawing.Point(18, 255);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(75, 23);
@@ -181,6 +186,7 @@
             // reservationIDLabel
             // 
             this.reservationIDLabel.AutoSize = true;
+            this.reservationIDLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.reservationIDLabel.Location = new System.Drawing.Point(4, 5);
             this.reservationIDLabel.Name = "reservationIDLabel";
             this.reservationIDLabel.Size = new System.Drawing.Size(78, 13);
