@@ -104,7 +104,7 @@ namespace HotelApp
         private void UpdateView()
         {
             con.Open();
-            com = new SqlCommand(("SELECT RoomNumber AS 'Room Number', CONCAT(Guests.FirstName, Guests.LastName) AS 'Guest Name', CONCAT(Employees.FirstName, Employees.LastName ) AS 'Cleaned By', Rooms.Notes FROM Rooms LEFT JOIN Guests ON Rooms.GuestID=Guests.GuestID LEFT JOIN Employees ON Rooms.CleanedBy=Employees.EmployeeID ORDER BY RoomNumber"), con);
+            com = new SqlCommand(("SELECT RoomNumber AS 'Room Number', CONCAT(Guests.FirstName, ' ', Guests.LastName) AS 'Guest Name', CONCAT(Employees.FirstName, ' ', Employees.LastName ) AS 'Cleaned By', Rooms.Notes FROM Rooms LEFT JOIN Guests ON Rooms.GuestID=Guests.GuestID LEFT JOIN Employees ON Rooms.CleanedBy=Employees.EmployeeID ORDER BY RoomNumber"), con);
             da = new SqlDataAdapter(com);
             DataTable table = new DataTable();
             da.Fill(table);

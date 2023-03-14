@@ -61,7 +61,7 @@ namespace HotelApp
         //adds check ins to table for the entered date
         private void FindCheckIns(DataTable table)
         {
-            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, CONCAT(Guests.FirstName, ' ', Guests.LastName) AS 'Guest Name', Reservations.CheckInDate, Reservations.CheckOutDate FROM Reservations INNER JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckInDate LIKE @date AND CheckedInBy IS NULL"), con);
+            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, CONCAT(Guests.FirstName, ' ', Guests.LastName) AS 'Guest Name', Reservations.CheckInDate, Reservations.CheckOutDate FROM Reservations LEFT JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckInDate LIKE @date AND CheckedInBy IS NULL"), con);
             com.Parameters.AddWithValue("@date", dateBox.Text + "%");
             da = new SqlDataAdapter(com);
             da.Fill(table);
@@ -70,7 +70,7 @@ namespace HotelApp
         //adds check outs to table for the entered date
         private void FindCheckOuts(DataTable table) 
         { 
-            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, CONCAT(Guests.FirstName, ' ', Guests.LastName) AS 'Guest Name', Reservations.CheckInDate, Reservations.CheckOutDate FROM Reservations INNER JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckOutDate LIKE @date AND CheckedOutBy IS NULL"), con);
+            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, CONCAT(Guests.FirstName, ' ', Guests.LastName) AS 'Guest Name', Reservations.CheckInDate, Reservations.CheckOutDate FROM Reservations LEFT JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckOutDate LIKE @date AND CheckedOutBy IS NULL"), con);
             com.Parameters.AddWithValue("@date", dateBox.Text + "%");
             da = new SqlDataAdapter(com);
             da.Fill(table);
@@ -79,8 +79,8 @@ namespace HotelApp
         //adds clean ups to table for the entered date
         private void FindCleanUps(DataTable table)
         {
-            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, Reservations.CheckOutDate FROM Reservations INNER JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckOutDate=@date AND CleanedBy IS NULL"), con);
-            com.Parameters.AddWithValue("@date", dateBox.Text);
+            com = new SqlCommand(("SELECT Reservations.ReservationID, Reservations.RoomNumber, Reservations.CheckOutDate FROM Reservations LEFT JOIN Guests ON Reservations.GuestID=Guests.GuestID WHERE CheckOutDate LIKE @date AND CleanedBy IS NULL"), con);
+            com.Parameters.AddWithValue("@date", dateBox.Text + "%");
             da = new SqlDataAdapter(com);
             da.Fill(table);
         }
@@ -220,6 +220,7 @@ namespace HotelApp
                     }
                     break;
             }
+            UpdateView();
         }
 
         //updates reservation and room as checked in

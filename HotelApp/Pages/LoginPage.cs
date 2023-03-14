@@ -6,7 +6,7 @@ namespace HotelApp
 {
     public partial class LoginPage : Form
     {
-        private SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-I6V3SE2;Initial Catalog=HotelApp;Integrated Security=True");
+        private SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-I6V3SE2;Initial Catalog=HotelApp;Integrated Security=True;MultipleActiveResultSets=true");
         private SqlCommand com;
         private SqlDataReader dr;
         private string role;
@@ -42,6 +42,7 @@ namespace HotelApp
                     mp.Show();
                     employeeIDBox.Clear();
                     passwordBox.Clear();
+                    invCredLabel.Hide();
                     this.Hide();
                 } else
                 {

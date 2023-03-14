@@ -57,7 +57,7 @@
             this.greetingsLabel.BackColor = System.Drawing.Color.Transparent;
             this.greetingsLabel.Font = new System.Drawing.Font("Sitka Heading", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.greetingsLabel.ForeColor = System.Drawing.Color.Goldenrod;
-            this.greetingsLabel.Location = new System.Drawing.Point(152, 25);
+            this.greetingsLabel.Location = new System.Drawing.Point(495, 26);
             this.greetingsLabel.Name = "greetingsLabel";
             this.greetingsLabel.Size = new System.Drawing.Size(559, 81);
             this.greetingsLabel.TabIndex = 0;
