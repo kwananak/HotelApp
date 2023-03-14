@@ -336,6 +336,29 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMeImages\adminemployeesview.png" />
+    <Content Include="ReadMeImages\adminguestsview.png" />
+    <Content Include="ReadMeImages\adminreservationdatechanged.png" />
+    <Content Include="ReadMeImages\adminreservationsupdate.png" />
+    <Content Include="ReadMeImages\adminreservationsupdateget.png" />
+    <Content Include="ReadMeImages\adminreservationsview.png" />
+    <Content Include="ReadMeImages\adminroomsview.png" />
+    <Content Include="ReadMeImages\admintaskscomplete.png" />
+    <Content Include="ReadMeImages\cleaningmainpage.png" />
+    <Content Include="ReadMeImages\cleaningtasksview.png" />
+    <Content Include="ReadMeImages\deskmainpage.png" />
+    <Content Include="ReadMeImages\desktaskscomplete.png" />
+    <Content Include="ReadMeImages\desktasksview.png" />
+    <Content Include="ReadMeImages\employeesdesign.png" />
+    <Content Include="ReadMeImages\guestsdesign.png" />
+    <Content Include="ReadMeImages\hotelappdiagram.png" />
+    <Content Include="ReadMeImages\loginpage.png" />
+    <Content Include="ReadMeImages\loignpageinvcred.png" />
+    <Content Include="ReadMeImages\mainpage.png" />
+    <Content Include="ReadMeImages\reservationsdesign.png" />
+    <Content Include="ReadMeImages\roomsdesign.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
