@@ -83,44 +83,10 @@ namespace HotelApp
         private void UpdateView()
         {
             con.Open();
-            com = new SqlCommand(("SELECT reservationID AS 'Reservation ID', CONCAT(Guests.FirstName, ' ', Guests.LastName) AS 'Guest Name', RoomNumber AS 'Room Number', CheckInDate AS 'Check In Date', CheckOutDate AS 'Check Out Date', CheckedInBy, CheckedOutBy, CleanedBy, Reservations.Notes FROM Reservations JOIN Guests ON Reservations.GuestID=Guests.GuestID ORDER BY CheckInDate"), con);
-            da = new SqlDataAdapter(com);
+            com = new SqlCommand("SELECT ReservationID AS 'Reservation ID', CONCAT(Guests.FirstName, ' ', Guests.LastName) AS 'Guest Name', RoomNumber AS 'Room Number', CheckInDate AS 'Check In Date', CheckOutDate AS 'Check Out Date', CONCAT(CheckIner.FirstName, ' ', CheckIner.LastName) as 'Checked In By', CONCAT(CheckOuter.FirstName, ' ', CheckOuter.LastName) as 'Checked Out By', CONCAT(Cleaner.FirstName, ' ', Cleaner.LastName) as 'Cleaned By', Reservations.Notes FROM Reservations LEFT JOIN Employees CheckIner ON CheckedInBy=CheckIner.EmployeeID LEFT JOIN Employees CheckOuter ON CheckedOutBy=CheckOuter.EmployeeID LEFT JOIN Employees Cleaner ON CleanedBy = Cleaner.EmployeeID JOIN Guests ON Reservations.GuestID=Guests.GuestID ORDER BY CheckInDate", con);
+            da = new SqlDataAdapter(com);                                               
             DataTable table = new DataTable();
             da.Fill(table);
-            DataColumn checkedInCol = new DataColumn("Checked In By", typeof(string));
-            table.Columns.Add(checkedInCol);
-            DataColumn checkedOutCol = new DataColumn("Checked Out By", typeof(string));
-            table.Columns.Add(checkedOutCol);
-            DataColumn cleanedCol = new DataColumn("Cleaned By", typeof(string));
-            table.Columns.Add(cleanedCol);
-            foreach (DataRow row in table.Rows)
-            {
-                com = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) FROM Employees WHERE EmployeeID=@employeeid", con);
-                com.Parameters.AddWithValue("@employeeid", row["CheckedInBy"].ToString());
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    row[checkedInCol] = dr.GetValue(0).ToString();
-                }
-                com = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) FROM Employees WHERE EmployeeID=@employeeid", con);
-                com.Parameters.AddWithValue("@employeeid", row["CheckedOutBy"].ToString());
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    row[checkedOutCol] = dr.GetValue(0).ToString();
-                }
-                com = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) FROM Employees WHERE EmployeeID=@employeeid", con);
-                com.Parameters.AddWithValue("@employeeid", row["CleanedBy"].ToString());
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    row[cleanedCol] = dr.GetValue(0).ToString();
-                }
-            }
-            table.Columns.Remove("CheckedInBy");
-            table.Columns.Remove("CheckedOutBy");
-            table.Columns.Remove("CleanedBy");
-            table.Columns[5].SetOrdinal(8);
             dataGridView1.DataSource = table;
             con.Close();
         }
